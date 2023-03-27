@@ -80,7 +80,7 @@ const Navbar = () => {
                             </Link>
                         </ul>
                         <div className='pt-40'>
-                            <p className=' text-black uppercase tracking-wider'>Let's connect!</p>
+                            <p className=' text-black uppercase tracking-wider'>Let&#39;s connect!</p>
                             <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                                 <div className='nav-icon'>
                                     <FaSpotify color='black' size={25}/>

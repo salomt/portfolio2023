@@ -11,7 +11,7 @@ const Skills = () => {
                         <h3>Music composition</h3>
                         <div className='border-b pb-2'></div>
                         <p>I write music in various styles and genres.</p>
-                        <p>During my career I've written hundreds of songs for over ten games, videos, learning products, etc...
+                        <p>During my career I&#39;ve written hundreds of songs for over ten games, videos, learning products, etc...
                             Cinematic/orchestral, folk, rock, jazz, electronic and everything in between.</p>
                     </div>
                     <div className='py-2'>
