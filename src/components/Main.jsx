@@ -4,7 +4,7 @@ import {FaLinkedinIn, FaSpotify, FaInstagram} from 'react-icons/fa'
 
 const Main = () => {
     return (
-        <div className='w-full h-screen text-center'>
+        <div id='home' className='pt-60 w-full h-screen text-center'>
             <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-center'>
                 <div>
                     <p className='text-xl sm:text-2xl md:text-4xl font-bold tracking-wide'>Welcome to my portfolio!</p>

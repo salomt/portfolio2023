@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+
+  html {
+    --scroll-behavior: smooth!important;
+    scroll-behavior: smooth!important;
+  }
+
   body {
     @apply bg-tommi-bk bg-auto bg-cover bg-no-repeat bg-fixed bg-top text-[#eceff2] tracking-wide
   }

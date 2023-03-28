@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu, AiOutlineMail} from 'react-icons/ai'
@@ -8,21 +8,36 @@ import {FaLinkedinIn, FaSpotify, FaInstagram} from 'react-icons/fa'
 const Navbar = () => {
 
     const [nav, setNav] = useState(false)
+    const [shadow, setShadow] = useState(false)
 
     const handleNav = () => {
         setNav(!nav)
     }
 
+useEffect( () => {
+    const handleShadow = () => {
+        if (window.scrollY >= 90) {
+            setShadow(true)
+        } else {
+            setShadow(false)
+        }
+    }
+    window.addEventListener('scroll', handleShadow)
+}, [])
+
+
     return (
-        <div className='fixed-w-full h-20 z-[100] pt-4'>
-            <div className='flex justify-between items-center w-full px2 2xl:px-16 fixed'>
-                <div className='pl-2'>
+        <div className={shadow 
+                        ? 'bg-blue-700 bg-opacity-20 fixed w-full h-24 z-[100] pt-4 shadow-xl ease-in-out duration-500' 
+                        : 'fixed w-full h-24 z-[100] pt-4 ease-in-out duration-500'}>
+            <div className='flex justify-between items-center w-full px2 2xl:px-16 fixed '>
+                <div className='pl-4'>
                     <h2 className=''>Tommi Salomaa</h2>
                     <p>COMPOSER | PERFORMER | AUDIO ENGINEER</p>
                 </div>
                 <div>
-                    <ul className='hidden md:flex pr-2'>
-                        <Link href='/'>
+                    <ul className='hidden md:flex pr-4'>
+                        <Link href='#home'>
                             <li className='ml-10 uppercase hover:border-b'>home</li>
                         </Link>
                         <Link href='#about'>
@@ -63,7 +78,7 @@ const Navbar = () => {
                     </div>
                     <div className='py-4 flex flex-col'>
                         <ul className='text-black uppercase'>
-                            <Link href='/' onClick={handleNav}>
+                            <Link href='#home' onClick={handleNav}>
                                 <li className='py-4 text-sm'>home</li>
                             </Link>
                             <Link href='#about' onClick={handleNav}>
