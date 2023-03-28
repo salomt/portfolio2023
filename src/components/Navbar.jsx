@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu, AiOutlineMail} from 'react-icons/ai'
-import {FaLinkedinIn, FaSpotify, FaInstagram} from 'react-icons/fa'
+import {FaLinkedinIn, FaSpotify, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 
 const Navbar = () => {
@@ -25,11 +25,10 @@ useEffect( () => {
     window.addEventListener('scroll', handleShadow)
 }, [])
 
-
     return (
         <div className={shadow 
-                        ? 'bg-blue-700 bg-opacity-20 fixed w-full h-24 z-[100] pt-4 shadow-xl ease-in-out duration-500' 
-                        : 'fixed w-full h-24 z-[100] pt-4 ease-in-out duration-500'}>
+                        ? 'bg-blue-700 bg-opacity-20 fixed w-full h-20 md:h-24 z-[100] pt-4 shadow-xl ease-in-out duration-500' 
+                        : 'fixed w-full h-20 md:h-24 z-[100] pt-4 ease-in-out duration-500'}>
             <div className='flex justify-between items-center w-full px2 2xl:px-16 fixed '>
                 <div className='pl-4'>
                     <h2 className=''>Tommi Salomaa</h2>
@@ -69,7 +68,7 @@ useEffect( () => {
                                 <h2 className='tracking-normal text-md'>Tommi Salomaa</h2>
                             </div>
                             <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray p-3 cursor-pointer'>
-                                <AiOutlineClose color='black' size={35} />
+                                <AiOutlineClose color='black' size={30} />
                             </div>
                         </div>
                         <div className='text-black border-b border-gray-300 my-4'>
@@ -94,17 +93,28 @@ useEffect( () => {
                                 <li className='py-4 text-sm'>contact</li>
                             </Link>
                         </ul>
-                        <div className='pt-40'>
+                        <div className='pt-20'>
                             <p className=' text-black uppercase tracking-wider'>Let&#39;s connect!</p>
                             <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                                 <div className='nav-icon'>
-                                    <FaSpotify color='black' size={25}/>
+                                    <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg'>
+                                        <FaSpotify color='black' size={25}/>
+                                    </a>
                                 </div>
                                 <div className='nav-icon'>
-                                    <FaInstagram color='black' size={25}/>
+                                    <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs'>
+                                        <FaYoutube color='black' size={25}/>
+                                    </a>
                                 </div>
                                 <div className='nav-icon'>
-                                    <FaLinkedinIn color='black' size={25}/>
+                                    <a href='https://www.instagram.com/t.salomaa/'>
+                                        <FaInstagram color='black' size={25}/>
+                                    </a>
+                                </div>
+                                <div className='nav-icon'>
+                                    <a href='https://www.linkedin.com/in/tommi-salomaa/'>
+                                        <FaLinkedinIn color='black' size={25}/>
+                                    </a>
                                 </div>
                                 <div className='nav-icon'>
                                     <AiOutlineMail color='black' size={25}/>

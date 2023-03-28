@@ -1,6 +1,6 @@
 import React from 'react'
 import {AiOutlineMail} from 'react-icons/ai'
-import {FaLinkedinIn, FaSpotify, FaInstagram} from 'react-icons/fa'
+import {FaLinkedinIn, FaSpotify, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 const Main = () => {
     return (
@@ -11,16 +11,29 @@ const Main = () => {
                     <p className='py-4 w-3/5 m-auto text-md sm:text-lg font-bold'> I am Tommi, composer, musician, DJ, producer and audio engineer working in the world of music, videogames and e-learning.</p>
                     <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
                         <div className='main-icon'>
-                            <FaSpotify color='black' size={20}/>
+                            <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg'>
+                                <FaSpotify color='black' size={20}/>
+                            </a>
                         </div>
                         <div className='main-icon'>
-                            <FaInstagram color='black' size={20}/>
+                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs'>
+                                <FaYoutube color='black' size={20}/>
+                            </a>
                         </div>
                         <div className='main-icon'>
-                            <FaLinkedinIn color='black' size={20}/>
+                            <a href='https://www.instagram.com/t.salomaa/'>
+                                <FaInstagram color='black' size={20}/>
+                            </a>
                         </div>
                         <div className='main-icon'>
-                            <AiOutlineMail color='black' size={20}/>
+                            <a href='https://www.linkedin.com/in/tommi-salomaa/'>
+                                <FaLinkedinIn color='black' size={20}/>
+                            </a>
+                        </div>
+                        <div className='main-icon'>
+                            <a href=''>
+                                <AiOutlineMail color='black' size={20}/>
+                            </a>
                         </div>
                     </div>
                 </div>

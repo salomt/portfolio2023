@@ -17,7 +17,7 @@ const About = () => {
                         I run my own one-man company Megatommi Productions.
                     </p>
                     <h3 className='pt-8 border-b'>Why should you hire Megatommi for your project or gig?</h3>
-                        <p>Because he..</p>
+                        <p className='pt-4'>Because he..</p>
                         <ul className='list-disc p-4'>
                             <li>
                                 is passionate, reliable and really cares about your project
