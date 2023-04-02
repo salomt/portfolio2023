@@ -39,7 +39,7 @@
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#565a1e5a] to-[#a2a2a2] text-white
+    @apply shadow-lg shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#565a1e5a] to-[#a2a2a2] text-white w-full mt-2 p-4 active:shadow-none active:-translate-x-2 active:translate-y-2
   }
 }
 
@@ -56,5 +56,5 @@
 }
 
 .page-top-div {
-  @apply w-full lg:h-screen p-2 flex items-center py-12 bg-[#000620] bg-opacity-75
+  @apply w-full lg:h-screen p-2 flex items-center py-20 bg-[#000620] bg-opacity-75
 }

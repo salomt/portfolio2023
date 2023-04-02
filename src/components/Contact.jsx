@@ -4,14 +4,14 @@ import {FaLinkedinIn, FaSpotify, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 const Contact = () => {
     return (
-        <div id='contact' className='page-top-div'>
+        <div id='contact' className='w-full lg:h-screen p-8 py-20  bg-[#000620] bg-opacity-75'>
             <div className='max-w-[1240px] m-auto md:grid grid-cols-3 gap-8 h-screen py-8'>
                 <div className='col-span-2'>
                     <p className='uppercase text-xl tracking-widest underline'>Contact</p>
                     <h2 className='py-4 text-rose-300'>Get in touch!</h2>
                     <div className='grid lg:grid-cols-8 gap-8'>
                         {/* LEFT */}
-                        <div className='col-span-8 lg:col-span-4 w-full h-{80%} shadow-xl shadow-gray-400 rounded-xl p-4'>
+                        <div className='col-span-8 lg:col-span-4 w-full shadow-sm shadow-gray-400 rounded-xl p-4'>
                                 <p>I am available for projects.</p>
                                 <div className='pt-40 p-4'>
                                     <p className=' text-white uppercase tracking-wider'>Let&#39;s connect!</p>
@@ -46,46 +46,47 @@ const Contact = () => {
 
                         </div>
                         {/* RIGHT */}
-                        <div className='col-span-8 lg:col-span-4 w-full h-auto shadow-sm shadow-gray-500 rounded-xl lg:p-4'>
-                            <div className='p-4'>
+                        <div className='col-span-8 lg:col-span-4 w-full h-auto shadow-sm shadow-gray-500 rounded-xl lg:p-4 pt-2'>
+                            <div className='p-2'>
                                 <form>
                                     <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
                                         <div className='flex flex-col'>
-                                            <label className='uppercase text-sm py-2'>Name</label>
+                                            <label className='uppercase text-sm'>Name</label>
                                             <input 
                                                 className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                                 type='text' 
                                             />
                                         </div>
                                         <div className='flex flex-col'>
-                                            <label className='uppercase text-sm py-2'>Phone</label>
+                                            <label className='uppercase text-sm'>Phone</label>
                                             <input 
                                                 className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                                 type='text' 
                                             />
                                         </div>
                                     </div>
-                                    <div className='flex flex-col py2'>
-                                        <label className='uppercase text-sm py-2'>E-mail</label>
+                                    <div className='flex flex-col'>
+                                        <label className='uppercase text-sm pt-2'>E-mail</label>
                                         <input 
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                             type='email' 
                                         />
                                     </div>
-                                    <div className='flex flex-col py2'>
-                                        <label className='uppercase text-sm py-2'>Subject</label>
+                                    <div className='flex flex-col'>
+                                        <label className='uppercase text-sm pt-2'>Subject</label>
                                         <input 
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                             type='text' 
                                         />
                                     </div>
                                     <div className='flex flex-col py2'>
-                                        <label className='uppercase text-sm py-2'>Subject</label>
+                                        <label className='uppercase text-sm pt-2'>Message</label>
                                         <textarea 
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm'
-                                            rows='10' 
+                                            rows='8' 
                                         />
                                     </div>
+                                    <button className='pt-4'>Send Message</button>
                                 </form>
                             </div>
                         </div>

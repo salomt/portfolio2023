@@ -45,7 +45,7 @@ useEffect( () => {
                         <Link href='/#skills'>
                             <li className='ml-10 uppercase hover:border-b'>skills</li>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/#projects'>
                             <li className='ml-10 uppercase hover:border-b'>projects</li>
                         </Link>
                         <Link href='/#contact'>
@@ -86,13 +86,14 @@ useEffect( () => {
                             <Link href='/#skills' onClick={handleNav}>
                             <li className='py-4 text-sm'>skills</li>
                             </Link>
-                            <Link href='/' onClick={handleNav}>
+                            <Link href='/#projects' onClick={handleNav}>
                                 <li className='py-4 text-sm'>projects</li>
                             </Link>
                             <Link href='/#contact' onClick={handleNav}>
                                 <li className='py-4 text-sm'>contact</li>
                             </Link>
                         </ul>
+
                         <div className='pt-20'>
                             <p className=' text-black uppercase tracking-wider'>Let&#39;s connect!</p>
                             <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
