@@ -36,19 +36,19 @@ useEffect( () => {
                 </div>
                 <div>
                     <ul className='hidden md:flex pr-4'>
-                        <Link href='#home'>
+                        <Link href='/#home'>
                             <li className='ml-10 uppercase hover:border-b'>home</li>
                         </Link>
-                        <Link href='#about'>
+                        <Link href='/#about'>
                             <li className='ml-10 uppercase hover:border-b'>about</li>
                         </Link>
-                        <Link href='#skills'>
+                        <Link href='/#skills'>
                             <li className='ml-10 uppercase hover:border-b'>skills</li>
                         </Link>
                         <Link href='/'>
                             <li className='ml-10 uppercase hover:border-b'>projects</li>
                         </Link>
-                        <Link href='/'>
+                        <Link href='/#contact'>
                             <li className='ml-10 uppercase hover:border-b'>contact</li>
                         </Link>
                     </ul>
@@ -77,19 +77,19 @@ useEffect( () => {
                     </div>
                     <div className='py-4 flex flex-col'>
                         <ul className='text-black uppercase'>
-                            <Link href='#home' onClick={handleNav}>
+                            <Link href='/#home' onClick={handleNav}>
                                 <li className='py-4 text-sm'>home</li>
                             </Link>
-                            <Link href='#about' onClick={handleNav}>
+                            <Link href='/#about' onClick={handleNav}>
                                 <li className='py-4 text-sm'>about</li>
                             </Link>
-                            <Link href='#skills' onClick={handleNav}>
+                            <Link href='/#skills' onClick={handleNav}>
                             <li className='py-4 text-sm'>skills</li>
                             </Link>
                             <Link href='/' onClick={handleNav}>
                                 <li className='py-4 text-sm'>projects</li>
                             </Link>
-                            <Link href='/' onClick={handleNav}>
+                            <Link href='/#contact' onClick={handleNav}>
                                 <li className='py-4 text-sm'>contact</li>
                             </Link>
                         </ul>
@@ -117,7 +117,9 @@ useEffect( () => {
                                     </a>
                                 </div>
                                 <div className='nav-icon'>
+                                    <a href='mailto:tommi.salomaa@gmail.com'>
                                     <AiOutlineMail color='black' size={25}/>
+                                    </a>
                                 </div>
                             </div>
 

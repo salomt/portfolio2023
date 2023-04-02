@@ -51,6 +51,10 @@
     @apply rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300
 }
 
+.contact-icon {
+  @apply rounded-full bg-white shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300
+}
+
 .page-top-div {
-  @apply w-full lg:h-screen p-2 flex items-center py-24 bg-[#000620] bg-opacity-75
+  @apply w-full lg:h-screen p-2 flex items-center py-12 bg-[#000620] bg-opacity-75
 }
