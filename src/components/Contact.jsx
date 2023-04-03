@@ -2,6 +2,7 @@ import React from 'react'
 import {AiOutlineMail} from 'react-icons/ai'
 import {FaLinkedinIn, FaSpotify, FaInstagram, FaYoutube} from 'react-icons/fa'
 
+
 const Contact = () => {
     return (
         <div id='contact' className='w-full lg:h-screen p-8 py-20  bg-[#000620] bg-opacity-75'>
@@ -49,25 +50,20 @@ const Contact = () => {
                         <div className='col-span-8 lg:col-span-4 w-full h-auto shadow-sm shadow-gray-500 rounded-xl lg:p-4 pt-2'>
                             <div className='p-2'>
                                 <form>
-                                    <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
+
                                         <div className='flex flex-col'>
                                             <label className='uppercase text-sm'>Name</label>
                                             <input 
+                                                id='msgname'
                                                 className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                                 type='text' 
                                             />
                                         </div>
-                                        <div className='flex flex-col'>
-                                            <label className='uppercase text-sm'>Phone</label>
-                                            <input 
-                                                className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
-                                                type='text' 
-                                            />
-                                        </div>
-                                    </div>
+
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm pt-2'>E-mail</label>
                                         <input 
+                                            id='msgemail'
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                             type='email' 
                                         />
@@ -75,6 +71,7 @@ const Contact = () => {
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm pt-2'>Subject</label>
                                         <input 
+                                            id='msgubject'
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm' 
                                             type='text' 
                                         />
@@ -82,6 +79,7 @@ const Contact = () => {
                                     <div className='flex flex-col py2'>
                                         <label className='uppercase text-sm pt-2'>Message</label>
                                         <textarea 
+                                            id='msgmessage'
                                             className='border-2 rounded-lg p-2 flex border-gray-300 text-black text-sm'
                                             rows='8' 
                                         />
