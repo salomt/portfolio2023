@@ -18,27 +18,27 @@ const Contact = () => {
                                     <p className=' text-white uppercase tracking-wider'>Let&#39;s connect!</p>
                                     <div className='flex items-center justify-between my-4 w-full'>
                                         <div className='contact-icon'>
-                                            <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg'>
+                                            <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg' target='_blank'>
                                                 <FaSpotify color='black' size={20}/>
                                             </a>
                                         </div>
                                         <div className='contact-icon'>
-                                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs'>
+                                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs' target='_blank'>
                                                 <FaYoutube color='black' size={20}/>
                                             </a>
                                         </div>
                                         <div className='contact-icon'>
-                                            <a href='https://www.instagram.com/t.salomaa/'>
+                                            <a href='https://www.instagram.com/t.salomaa/' target='_blank'>
                                                 <FaInstagram color='black' size={20}/>
                                             </a>
                                         </div>
                                         <div className='contact-icon'>
-                                            <a href='https://www.linkedin.com/in/tommi-salomaa/'>
+                                            <a href='https://www.linkedin.com/in/tommi-salomaa/' target='_blank'>
                                                 <FaLinkedinIn color='black' size={20}/>
                                             </a>
                                         </div>
                                         <div className='contact-icon'>
-                                            <a href='mailto:tommi.salomaa@gmail.com'>
+                                            <a href='mailto:tommi.salomaa@gmail.com' target='_blank'>
                                             <AiOutlineMail color='black' size={20}/>
                                             </a>
                                         </div>

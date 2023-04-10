@@ -56,5 +56,5 @@
 }
 
 .page-top-div {
-  @apply w-full lg:h-screen p-2 flex items-center py-20 bg-[#000620] bg-opacity-75
+  @apply w-full lg:min-h-screen p-2 flex items-center py-20 bg-[#000620] bg-opacity-75
 }
