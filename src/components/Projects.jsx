@@ -59,6 +59,29 @@ const Projects = () => {
                             </div>
                         </div>
 
+                         {/* MLS */}
+                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <div className=' py-2 p-4 flex items-center justify-center'>
+                                <a href='https://www.moominls.com/' target='_blank'>
+                                    <Image
+                                        src='/assets/customerlogos/Logo_MLS.png'
+                                        alt="Moomin Language School"
+                                        width={500}
+                                        height={200}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </a>
+                            </div>
+                            <div className='py2 p-4 text-black'>
+                            <h4>MOOMIN LANGUAGE SCHOOL</h4>
+                                <p>
+                                    Voiceover recording and editing, music composition for language learning product for children.
+                                </p>
+                            </div>
+                        </div>
+
+
                          {/* RETRO SHOT */}
                          <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
                             <div className=' py-2 p-4 flex items-center justify-center'>
@@ -85,19 +108,21 @@ const Projects = () => {
                          {/* AG DRIVE */}
                          <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
                             <div className=' py-2 p-4 flex items-center justify-center'>
-                                <Image
-                                    src='/assets/projectpics/agdrive.jpeg'
-                                    alt="Dized"
-                                    width={500}
-                                    height={200}
-                                    // blurDataURL="data:..." automatically provided
-                                    // placeholder="blur" // Optional blur-up while loading
-                                />
+                                <a href='https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA' target='_blank'>
+                                    <Image
+                                        src='/assets/projectpics/agdrive.jpeg'
+                                        alt="Dized"
+                                        width={500}
+                                        height={200}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </a>
                             </div>
                             <div className='py2 p-4 text-black'>
                             <h4>AG DRIVE</h4>
                                 <p>
-                                    Producing a track 'Riding High' for a game soundtrack for AG Drive futuristic driving game.
+                                    Producing a track <span className='italic'>Riding High</span> for a game soundtrack for AG Drive, a futuristic driving game.
                                 </p>
                             </div>
                         </div>
@@ -124,8 +149,8 @@ const Projects = () => {
 
                     </div>
 
-                    {/* MUSIC ALBUMS AND GIGS */}
-                    <h3>Albums and bands</h3>
+                    {/* Studio Work */}
+                    <h3 className='pt-8'>Studio Work</h3>
                     <div className='border-b pb-2 m-auto'></div>
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4'>
 
@@ -146,7 +171,7 @@ const Projects = () => {
                                     <h4>WALTARI - 3RD DECADE</h4>
                                     <ul className='list-disc p-2'>
                                         <li>Synth arrangements and sound design</li>
-                                        <li>Recording children's choir in <span className='italic'>So Fine 2021</span></li>
+                                        <li>Recording childre&apos;s choir in <span className='italic'>So Fine 2021</span></li>
                                         <li>Co-mixing some tracks</li>
                                     </ul>
                                 </div>
@@ -222,11 +247,86 @@ const Projects = () => {
                                 </div>
                             </a>
                         </div>
+                    </div>
+
+                    {/* Bands */}
+                    <h3 className='pt-8'>Bands And Live</h3>
+                    <div className='border-b pb-2 m-auto'></div>
+                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4'>
+
+                        {/* DJ MEGATOMMI */}
+                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <a href='' target='_blank'>
+                                <div className=' py-2 p-4 flex items-center justify-center'>
+                                    <Image
+                                        src='/assets/projectpics/DJMegatommi.png'
+                                        alt='DJ MegaTommi'
+                                        width={250}
+                                        height={250}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </div>
+                                <div className='py2 p-4 text-black'>
+                                    <h4>DJ MEGATOMMI</h4>
+                                    <ul className='list-disc p-2'>
+                                        <li>Specializing in electro, chiptune and synthwave</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+
+                        {/* THK */}
+                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <a href='https://www.facebook.com/triohenkinenkesoil' target='_blank'>
+                                <div className=' py-2 p-4 flex items-center justify-center'>
+                                    <Image
+                                        src='/assets/projectpics/THK.jpeg'
+                                        alt='Trio Henkinen Kesoil'
+                                        width={250}
+                                        height={250}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </div>
+                                <div className='py2 p-4 text-black'>
+                                    <h4>TRIO HENKINEN KESOIL (2018-2022)</h4>
+                                    <ul className='list-disc p-2'>
+                                        <li>Accordion</li>
+                                        <li>Gig booking</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+
+                        {/* WOTZC */}
+                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <a href='https://open.spotify.com/artist/6R9dTrKWg5HaP7we7KtKWM?si=Gkeu08HfSRqtMEEId23EMw' target='_blank'>
+                                <div className=' py-2 p-4 flex items-center justify-center'>
+                                    <Image
+                                        src='/assets/projectpics/WOTZC.png'
+                                        alt='WOTZC'
+                                        width={250}
+                                        height={250}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </div>
+                                <div className='py2 p-4 text-black'>
+                                    <h4>WOTZC (2007-20016)</h4>
+                                    <ul className='list-disc p-2'>
+                                        <li>Keyboards Live & Studio</li>
+                                        <li>Co-production</li>
+                                        <li>Co-Recording</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
 
                     </div>
 
                     {/* CUSTOMERS AND PARTNERS */}
-                    <h3>Customers</h3>
+                    <h3 className='pt-8'>Customers</h3>
                     <div className='border-b pb-2 m-auto'></div>
                     <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 w-full py-4'>
 
