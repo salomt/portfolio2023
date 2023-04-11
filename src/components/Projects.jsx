@@ -126,18 +126,20 @@ const Projects = () => {
                                 </p>
                             </div>
                         </div>
-
+                        
                          {/* ROCK RUNNERS */}
                          <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
                             <div className=' py-2 p-4 flex items-center justify-center'>
-                                <Image
-                                    src='/assets/projectpics/rockrunners.png'
-                                    alt="Rock Runners"
-                                    width={500}
-                                    height={200}
-                                    // blurDataURL="data:..." automatically provided
-                                    // placeholder="blur" // Optional blur-up while loading
-                                />
+                                <a href='https://tommisalomaa.bandcamp.com/album/rock-runners-soundtrack' target='_blank'>
+                                    <Image
+                                        src='/assets/projectpics/rockrunners.png'
+                                        alt="Rock Runners"
+                                        width={500}
+                                        height={200}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </a>
                             </div>
                             <div className='py2 p-4 text-black'>
                             <h4>ROCK RUNNERS</h4>
