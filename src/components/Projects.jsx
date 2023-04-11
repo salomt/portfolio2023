@@ -32,7 +32,7 @@ const Projects = () => {
                             <div className='py2 p-4 text-black'>
                             <h4>HOTEL HIDEAWAY</h4>
                                 <p>
-                                    Music composition and audio design for a social mobile game Hotel Hideaway (Sulake Corporation)
+                                    Music composition and audio design for a social mobile game. <br /> (2015- Sulake Corporation)
                                 </p>
                             </div>
                         </div>
@@ -54,7 +54,7 @@ const Projects = () => {
                             <div className='py2 p-4 text-black'>
                             <h4>DIZED</h4>
                                 <p>
-                                    Music, SFX and audio direction for a board game learning product Dized. (Playmore Games Oy)
+                                    Music, SFX and audio direction for a board game learning product. <br />(2017-2018, Playmore Games Oy)
                                 </p>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ const Projects = () => {
                             <div className='py2 p-4 text-black'>
                             <h4>RETRO SHOT</h4>
                                 <p>
-                                    Co-composing, producing, mixing and mastering original oundtrack for a mobile game in collaboration with Retro Thruster.
+                                    Co-composing, producing, mixing and mastering original soundtrack for a mobile game in collaboration with Retro Thruster.
                                     The soundtrack was awarded 3rd place at Finnish Game Music Awards in 2016.
                                 </p>
                             </div>
@@ -195,7 +195,7 @@ const Projects = () => {
                                     <h4>BABA GANOUSH ORKESTRA - MEZE</h4>
                                     <ul className='list-disc p-2'>
                                         <li>Recording the instruments</li>
-                                        <li>Mixing <a href='https://www.youtube.com/watch?v=9GWpZE_jZ8Q'>Sneak</a> studio live song</li>
+                                        <li>Mixing <span className='italic'>Sneak</span> studio live song</li>
                                     </ul>
                                 </div>
                             </a>

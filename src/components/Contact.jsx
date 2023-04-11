@@ -13,7 +13,7 @@ const Contact = () => {
                     <div className='grid lg:grid-cols-8 gap-8'>
                         {/* LEFT */}
                         <div className='col-span-8 lg:col-span-4 w-full shadow-sm shadow-gray-400 rounded-xl p-4'>
-                                <p>I am available for projects.</p>
+                                <p>I am available for projects and gigs, connect with me or send a message!</p>
                                 <div className='pt-40 p-4'>
                                     <p className=' text-white uppercase tracking-wider'>Let&#39;s connect!</p>
                                     <div className='flex items-center justify-between my-4 w-full'>
