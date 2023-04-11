@@ -206,7 +206,7 @@ const Projects = () => {
                             <a href='https://open.spotify.com/album/5dkcKhZscVpiyY6dgGWGko?si=cnw1M6okQG2NE2o1IS1sOA' target='_blank'>
                                 <div className=' py-2 p-4 flex items-center justify-center'>
                                     <Image
-                                        src='/assets/projectpics/VforViolence_TheBookOfV.png'
+                                        src='/assets/projectpics/VforViolence_TheBook.png'
                                         alt="V for Violence The Book of V"
                                         width={250}
                                         height={250}
