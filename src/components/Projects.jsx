@@ -328,7 +328,7 @@ const Projects = () => {
                     </div>
 
                     {/* CUSTOMERS AND PARTNERS */}
-                    <h3 className='pt-8'>Customers</h3>
+                    <h3 className='pt-8'>Customers and Partners</h3>
                     <div className='border-b pb-2 m-auto'></div>
                     <div className='grid grid-cols-2 lg:grid-cols-4 gap-8 w-full py-4'>
 
@@ -369,6 +369,28 @@ const Projects = () => {
                             <Image
                                 src='/assets/customerlogos/Logo_Engineers.png'
                                 alt="Engineering Union"
+                                width={300}
+                                height={300}
+                                // blurDataURL="data:..." automatically provided
+                                // placeholder="blur" // Optional blur-up while loading
+                            />
+                        </div>
+
+                        <div className='bg-gray-300 rounded-md p-2 flex items-center justify-center'>
+                            <Image
+                                src='/assets/customerlogos/Logo_IGDA.png'
+                                alt="IGDA Finland"
+                                width={300}
+                                height={300}
+                                // blurDataURL="data:..." automatically provided
+                                // placeholder="blur" // Optional blur-up while loading
+                            />
+                        </div>
+
+                        <div className='bg-gray-300 rounded-md p-2 flex items-center justify-center'>
+                            <Image
+                                src='/assets/customerlogos/Logo_HMQ.png'
+                                alt="Housemarque"
                                 width={300}
                                 height={300}
                                 // blurDataURL="data:..." automatically provided
