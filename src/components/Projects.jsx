@@ -173,7 +173,7 @@ const Projects = () => {
                                     <h4>WALTARI - 3RD DECADE</h4>
                                     <ul className='list-disc p-2'>
                                         <li>Synth arrangements and sound design</li>
-                                        <li>Recording childre&apos;s choir in <span className='italic'>So Fine 2021</span></li>
+                                        <li>Recording children&apos;s choir in <span className='italic'>So Fine 2021</span></li>
                                         <li>Co-mixing some tracks</li>
                                     </ul>
                                 </div>
