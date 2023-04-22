@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu, AiOutlineMail} from 'react-icons/ai'
 import {FaLinkedinIn, FaSpotify, FaInstagram, FaYoutube} from 'react-icons/fa'
@@ -14,16 +13,16 @@ const Navbar = () => {
         setNav(!nav)
     }
 
-useEffect( () => {
-    const handleShadow = () => {
-        if (window.scrollY >= 90) {
-            setShadow(true)
-        } else {
-            setShadow(false)
+    useEffect( () => {
+        const handleShadow = () => {
+            if (window.scrollY >= 90) {
+                setShadow(true)
+            } else {
+                setShadow(false)
+            }
         }
-    }
-    window.addEventListener('scroll', handleShadow)
-}, [])
+        window.addEventListener('scroll', handleShadow)
+    }, [])
 
     return (
         <div className={shadow 

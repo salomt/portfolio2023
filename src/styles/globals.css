@@ -11,7 +11,7 @@
   }
 
   body {
-    @apply bg-tommi-bk bg-auto bg-cover bg-no-repeat bg-fixed bg-top text-[#eceff2] tracking-wide
+    @apply bg-tommi-bk bg-cover bg-no-repeat bg-fixed bg-top text-[#eceff2] tracking-wide
   }
 
   h1, h2, h3, h4, h5 ,h6 {
