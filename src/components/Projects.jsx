@@ -81,6 +81,28 @@ const Projects = () => {
                             </div>
                         </div>
 
+                         {/* YOUSICIAN */}
+                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <div className=' py-2 p-4 flex items-center justify-center'>
+                                <a href='https://www.yousician.com' target='_blank'>
+                                    <Image
+                                        src='/assets/projectpics/YousicianHorizontal.png'
+                                        alt="Yousician"
+                                        width={500}
+                                        height={200}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </a>
+                            </div>
+                            <div className='py2 p-4 text-black'>
+                            <h4>YOUSICIAN</h4>
+                                <p>
+                                    Piano content production and management for music learning application.
+                                </p>
+                            </div>
+                        </div>
+
 
                          {/* RETRO SHOT */}
                          <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
@@ -356,8 +378,8 @@ const Projects = () => {
 
                         <div className='bg-gray-300 rounded-md py-2 flex items-center justify-center'>
                             <Image
-                                src='/assets/customerlogos/Logo_MLS.png'
-                                alt="Moomin Language School"
+                                src='/assets/customerlogos/Logo_Promentor.png'
+                                alt="Promentor Solutions"
                                 width={300}
                                 height={300}
                                 // blurDataURL="data:..." automatically provided

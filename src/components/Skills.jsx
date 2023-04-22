@@ -42,6 +42,21 @@ const Skills = () => {
                             Foley, field recording, sound synthesis, voiceovers, UI sounds, and more...
                         </p>
                     </div>
+                    <div className='py-2'>
+                        <h3>IT skills</h3>
+                        <div className='border-b'></div>
+                        <p>
+                            I have designed and developed (learning) games & apps and audio software.
+                        </p>
+                        <p>In addition I have skills in web development, databases, servers, documentation, support, APIs and cloud services.</p>
+                    </div>
+                    <div className='py-4'>
+                        <h3>Content production and Video editing</h3>
+                        <div className='border-b'></div>
+                        <p>
+                            I produce and maintain content for various customers, specializing in music and language learning.
+                        </p>
+                    </div>
                     <div className='py-4'>
                         <h3>Teaching and tutoring</h3>
                         <div className='border-b'></div>
