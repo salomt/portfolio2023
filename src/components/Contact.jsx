@@ -15,28 +15,18 @@ const Contact = () => {
                     <div className='grid lg:grid-cols-8 gap-8'>
                         {/* LEFT */}
                         <div className='col-span-8 lg:col-span-4 w-full shadow-sm shadow-gray-400 rounded-xl p-4'>
-                                <p>I am available for projects and gigs, connect with me with the services listed here:
+                                <p>I am available for new projects and gigs, connect with me with the services listed here!
                                 </p>
          
 
                         </div>
                         {/* RIGHT */}
                         <div className='col-span-8 lg:col-span-4 w-full h-auto shadow-sm shadow-gray-500 rounded-xl lg:p-4 pt-2'>
-                            <div className='p-2'>
+                            <div className=''> {/* p-2 */}
 
-                            <div className=' p-4'>
-                                    <p className=' text-white uppercase tracking-wider'>Let&#39;s connect!</p>
+                            <div className=''>
+                                   {/* <p className=' text-white uppercase tracking-wider'>Let&#39;s connect!</p>*/}
                                     <div className='flex items-center justify-between my-4 w-full'>
-                                        <div className='contact-icon'>
-                                            <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg' target='_blank'>
-                                                <FaSpotify color='black' size={20}/>
-                                            </a>
-                                        </div>
-                                        <div className='contact-icon'>
-                                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs' target='_blank'>
-                                                <FaYoutube color='black' size={20}/>
-                                            </a>
-                                        </div>
                                         <div className='contact-icon'>
                                             <a href='https://www.instagram.com/t.salomaa/' target='_blank'>
                                                 <FaInstagram color='black' size={20}/>
