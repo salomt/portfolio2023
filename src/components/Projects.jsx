@@ -283,7 +283,7 @@ const Projects = () => {
                             <a href='' target='_blank'>
                                 <div className=' py-2 p-4 flex items-center justify-center'>
                                     <Image
-                                        src='/assets/projectpics/impputommi.jpeg'
+                                        src='/assets/projectpics/impputommi.jpg'
                                         alt='Myllynen ja Salomaa'
                                         width={250}
                                         height={250}
