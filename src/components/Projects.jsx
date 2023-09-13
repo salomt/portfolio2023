@@ -280,7 +280,7 @@ const Projects = () => {
 
                         {/* MYLLYNEN JA SALOMAA */}
                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <a href='' target='_blank'>
+                            <a href='https://tommisalomaa.com/myllynenjasalomaa/' target='_blank'>
                                 <div className=' py-2 p-4 flex items-center justify-center'>
                                     <Image
                                         src='/assets/projectpics/impputommi.jpg'
