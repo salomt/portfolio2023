@@ -278,6 +278,29 @@ const Projects = () => {
                     <div className='border-b pb-2 m-auto'></div>
                     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4'>
 
+                        {/* ZUGE GUERILLA BAND */}
+                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
+                            <a href='' target='_blank'>
+                                <div className=' py-2 p-4 flex items-center justify-center'>
+                                    <Image
+                                        src='/assets/projectpics/zugeguerillaband.jpg'
+                                        alt='Zuge Guerilla Band'
+                                        width={250}
+                                        height={250}
+                                        // blurDataURL="data:..." automatically provided
+                                        // placeholder="blur" // Optional blur-up while loading
+                                    />
+                                </div>
+                                <div className='py2 p-4 text-black'>
+                                    <h4>ZUGE GUERILLA BAND</h4>
+                                    <ul className='list-disc p-2'>
+                                        <li>Keyboards and Percussion</li>
+                                        <li>Production, Recording, Mixing</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+
                         {/* MYLLYNEN JA SALOMAA */}
                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
                             <a href='https://tommisalomaa.com/myllynenjasalomaa/' target='_blank'>
@@ -292,9 +315,10 @@ const Projects = () => {
                                     />
                                 </div>
                                 <div className='py2 p-4 text-black'>
-                                    <h4>Myllynen & Salomaa plays M.A. Numminen</h4>
+                                    <h4>MYLLYNEN & SALOMAA PLAYS M.A. NUMMINEN</h4>
                                     <ul className='list-disc p-2'>
                                         <li>Tribute to Finnish folk artist M.A. Numminen</li>
+                                        <li>Accordion, Piano and Electronics</li>
                                     </ul>
                                 </div>
                             </a>
