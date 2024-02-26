@@ -442,6 +442,17 @@ const Projects = () => {
                             />
                         </div>
 
+                        <div className='bg-gray-300 rounded-md p-2 flex items-center justify-center'>
+                            <Image
+                                src='/assets/customerlogos/Logo_soundengine.jpeg'
+                                alt="Housemarque"
+                                width={300}
+                                height={300}
+                                // blurDataURL="data:..." automatically provided
+                                // placeholder="blur" // Optional blur-up while loading
+                            />
+                        </div>
+
                     </div>
                 </div>
             </div>
