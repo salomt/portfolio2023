@@ -445,7 +445,7 @@ const Projects = () => {
                         <div className='bg-gray-300 rounded-md p-2 flex items-center justify-center'>
                             <Image
                                 src='/assets/customerlogos/Logo_soundengine.jpeg'
-                                alt="Housemarque"
+                                alt="Sound Engine"
                                 width={300}
                                 height={300}
                                 // blurDataURL="data:..." automatically provided
