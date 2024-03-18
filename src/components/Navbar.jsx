@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className='flex justify-between items-center w-full px2 2xl:px-16 fixed '>
                 <div className='pl-4'>
                     <h2 className=''>Tommi Salomaa</h2>
-                    <p>COMPOSER | PERFORMER | AUDIO ENGINEER</p>
+                    <p>PERFORMER | PRODUCER | AUDIO ENGINEER</p>
                 </div>
                 <div>
                     <ul className='hidden md:flex pr-4'>

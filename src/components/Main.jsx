@@ -8,7 +8,7 @@ const Main = () => {
             <div className='max-w-[1240px] w-full h-full mx-auto flex justify-center items-center'>
                 <div>
                     <p className='text-xl sm:text-2xl md:text-4xl font-bold tracking-wide'>Welcome to my portfolio!</p>
-                    <p className='py-4 w-3/5 m-auto text-md sm:text-lg font-bold'> I am Tommi, composer, musician, DJ, producer and audio engineer working in the world of music, videogames and e-learning.</p>
+                    <p className='py-4 w-3/5 m-auto text-md sm:text-lg font-bold'> I am Tommi, musician, producer, audio engineer and event technician.</p>
                     <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
                         <div className='main-icon'>
                             <a href='https://open.spotify.com/artist/4Zu0QLKCCz02GjpdBvSSi9?si=xJ7Uxx7FTGGNMfwKrYTrIg' target='_blank'>

@@ -11,57 +11,42 @@ const Skills = () => {
                         <h3>Music composition</h3>
                         <div className='border-b pb-2'></div>
                         <p>I write music in various styles and genres.</p>
-                        <p>During my career I&#39;ve written hundreds of songs for games, videos, learning products, etc.
-                           Cinematic/orchestral, folk, rock, jazz, electronic and everything in between.</p>
+                        <p>During my career I&#39;ve written hundreds of songs for games, videos, learning products, etc.</p>
                     </div>
                     <div className='py-2'>
                         <h3>Performing live</h3>
                         <div className='border-b pb-2'></div>
                         <p>
-                            I play piano, keyboards and accordion. I also perform as a DJ. I play both solo and with bands.
-                            Weddings, funerals, X-mas parties, rock festivals, you name it, I can do it!
-                        </p>
-                        <p>
-                            As a DJ I specialize in video game music, chiptune and electronic, but there are no limits really!
+                            I play piano, keyboards and accordion and perform as a DJ.
                         </p>
                     </div>
                     <div className='py-2'>
-                        <h3>Producing, Recording and Mixing</h3>
+                        <h3>AV Engineering and Event Coordination</h3>
                         <div className='border-b pb-2'></div>
                         <p>
-                            I record, mix and produce music. I can also arrange keyboards, strings and other instruments.
+                            Working as an AV engineer, roadie and event coordinator. From big festivals to the corner of local pub.
+                        </p>
+                    </div>
+                    <div className='py-2'>
+                        <h3>Producing, Recording, Mixing, Arranging</h3>
+                        <div className='border-b pb-2'></div>
+                        <p>
+                            I record, mix and produce music, and arrange keyboards, strings and other instruments.
                         </p>
                     </div>
                     <div className='py-2'>
                         <h3>Sound Design</h3>
                         <div className='border-b'></div>
                         <p>
-                            I design sound and audio for games, apps and linear media.
+                            I design sound and audio for games, apps and linear media. Voiceover, Foley, Synthesis, etc.
                         </p>
-                        <p>
-                            Foley, field recording, sound synthesis, voiceovers, UI sounds, and more...
-                        </p>
-                    </div>
-                    <div className='py-2'>
-                        <h3>IT skills</h3>
-                        <div className='border-b'></div>
-                        <p>
-                            I have designed and developed (learning) games & apps and audio software.
-                        </p>
-                        <p>In addition I have skills in web development, databases, servers, documentation, support, APIs and cloud services.</p>
+
                     </div>
                     <div className='py-4'>
-                        <h3>Content production and Video editing</h3>
+                        <h3>Content production, Coordination and Video editing</h3>
                         <div className='border-b'></div>
                         <p>
                             I produce and maintain content for various customers, specializing in music and language learning.
-                        </p>
-                    </div>
-                    <div className='py-4'>
-                        <h3>Teaching and tutoring</h3>
-                        <div className='border-b'></div>
-                        <p>
-                            Yep, I also teach music recording and production stuff, as well as piano/keyboard playing.
                         </p>
                     </div>
                 </div>
