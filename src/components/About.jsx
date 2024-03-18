@@ -8,12 +8,8 @@ const About = () => {
                     <p className='uppercase text-xl tracking-widest underline'>About</p>
 
                     <h2 className='py-4 text-rose-300'>Who am I?</h2>
-                    <p>I have worked 14 years as a musician, audio designer, content producer, AV technician and evenc coordinator.
-                    </p>
-                    <p>
-                        I make events, music, audio and digital content.
-                    </p>
-  
+                    <p className='py-4'>I have worked 14 years as a composer, musician, DJ, audio designer, producer, AV technician and event coordinator. I make events, music, audio and digital content.</p>
+
                     <div> {/* RECOMMENDATIONS QUOTES */}
                         <h3 className='pt-8 border-b'>What others have to say?</h3>
 
