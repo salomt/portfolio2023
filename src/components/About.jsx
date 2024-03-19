@@ -8,7 +8,9 @@ const About = () => {
                     <p className='uppercase text-xl tracking-widest underline'>About</p>
 
                     <h2 className='py-4 text-rose-300'>Who am I?</h2>
-                    <p className='py-4'>I have worked 14 years as a composer, musician, DJ, audio designer, producer, AV technician and event coordinator. I make events, music, audio and digital content.</p>
+
+                    <p className='py-4'>I'm a guy who has dabbled his whole life with music, audio and some nerdy stuff as well.</p>
+                    <p className='py-4'>With my 14 years of experience as a composer, musician, DJ, audio designer and AV engineer, I can make your project or event sound amazing and unique.</p>
 
                     <div> {/* RECOMMENDATIONS QUOTES */}
                         <h3 className='pt-8 border-b'>What others have to say?</h3>
@@ -22,7 +24,7 @@ const About = () => {
                         <p className='pt-8 italic text-rose-300'>
                             &quot;I have worked with Tommi in several projects. His ability to create music, sound effects and even build the whole set-up is amazing. His superpower is listening the customer and bring life to an idea from a scratch. Projects have always been on time and successful.&quot;
                         </p>
-                        <p className='text-sm'>&emsp;-Milla Pennanen, producer/coordinator, Insinööriliitto/ Union of Professional Engineers</p>
+                        <p className='text-sm'>&emsp;<span className='font-bold'>-Milla Pennanen</span>, producer/coordinator, Insinööriliitto/ Union of Professional Engineers</p>
                     </div>
                 </div>
             </div>

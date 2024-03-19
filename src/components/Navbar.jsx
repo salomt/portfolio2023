@@ -29,12 +29,12 @@ const Navbar = () => {
                         ? 'bg-blue-700 bg-opacity-20 fixed w-full h-20 md:h-24 z-[100] pt-4 shadow-xl ease-in-out duration-500' 
                         : 'fixed w-full h-20 md:h-24 z-[100] pt-4 ease-in-out duration-500'}>
             <div className='flex justify-between items-center w-full px2 2xl:px-16 fixed '>
-                <div className='pl-4'>
+                <div className='pl-2'>
                     <h2 className=''>Tommi Salomaa</h2>
-                    <p>PERFORMER | PRODUCER | AUDIO ENGINEER</p>
+                    <p>MUSICIAN | AV ENGINEER</p>
                 </div>
                 <div>
-                    <ul className='hidden md:flex pr-4'>
+                    <ul className='hidden md:flex pr-2'>
                         <Link href='/#home'>
                             <li className='ml-10 uppercase hover:border-b'>home</li>
                         </Link>
@@ -46,6 +46,9 @@ const Navbar = () => {
                         </Link>
                         <Link href='/#projects'>
                             <li className='ml-10 uppercase hover:border-b'>projects</li>
+                        </Link>
+                        <Link href='/#clients'>
+                            <li className='ml-10 uppercase hover:border-b'>clients</li>
                         </Link>
                         <Link href='/#contact'>
                             <li className='ml-10 uppercase hover:border-b'>contact</li>
@@ -71,7 +74,7 @@ const Navbar = () => {
                             </div>
                         </div>
                         <div className='text-black border-b border-gray-300 my-4'>
-                            <p>COMPOSER | PERFORMER | AUDIO ENGINEER</p>
+                            <p>MUSICIAN | AV ENGINEER</p>
                         </div>
                     </div>
                     <div className='py-4 flex flex-col'>
@@ -88,6 +91,9 @@ const Navbar = () => {
                             <Link href='/#projects' onClick={handleNav}>
                                 <li className='py-4 text-sm'>projects</li>
                             </Link>
+                            <Link href='/#clients' onClick={handleNav}>
+                                <li className='py-4 text-sm'>clients</li>
+                            </Link>
                             <Link href='/#contact' onClick={handleNav}>
                                 <li className='py-4 text-sm'>contact</li>
                             </Link>
@@ -102,7 +108,7 @@ const Navbar = () => {
                                     </a>
                                 </div>
                                 <div className='nav-icon'>
-                                    <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs' target='_blank'>
+                                    <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQ' target='_blank'>
                                         <FaYoutube color='black' size={25}/>
                                     </a>
                                 </div>

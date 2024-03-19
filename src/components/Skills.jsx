@@ -8,46 +8,48 @@ const Skills = () => {
                     <p className='uppercase text-xl tracking-widest underline'>Skills</p>
                     <h2 className='py-4 text-rose-300'>What is it that I do?</h2>
                     <div className='py-2'>
-                        <h3>Music composition</h3>
-                        <div className='border-b pb-2'></div>
-                        <p>I write music in various styles and genres.</p>
-                        <p>During my career I&#39;ve written hundreds of songs for games, videos, learning products, etc.</p>
+                        <h3 className=''>MUSIC PRODUCTION</h3>
+                        <ul class='list-disc ml-8'>
+                            <li>composing & arranging</li>
+                            <li>recording & mixing</li>
+                            <li>producing</li>
+                        </ul>
                     </div>
                     <div className='py-2'>
-                        <h3>Performing live</h3>
-                        <div className='border-b pb-2'></div>
-                        <p>
-                            I play piano, keyboards and accordion and perform as a DJ.
-                        </p>
+                        <h3 className=''>LIVE PERFORMING</h3>
+
+                        <ul class='list-disc ml-8'>
+                            <li>piano & keys</li>
+                            <li>vocals</li>
+                            <li>DJ</li>
+                        </ul>
                     </div>
                     <div className='py-2'>
-                        <h3>AV Engineering and Event Coordination</h3>
-                        <div className='border-b pb-2'></div>
-                        <p>
-                            Working as an AV engineer, roadie and event coordinator. From big festivals to the corner of local pub.
-                        </p>
+                        <h3 className=''>AV ENGINEERING</h3>
+                        <ul class='list-disc ml-8'>
+                           <li>festivals</li>
+                           <li>company events</li>
+                           <li>private events</li>
+                           <li>clubs and gigs</li>
+                        </ul>
                     </div>
                     <div className='py-2'>
-                        <h3>Producing, Recording, Mixing, Arranging</h3>
-                        <div className='border-b pb-2'></div>
-                        <p>
-                            I record, mix and produce music, and arrange keyboards, strings and other instruments.
-                        </p>
-                    </div>
-                    <div className='py-2'>
-                        <h3>Sound Design</h3>
-                        <div className='border-b'></div>
-                        <p>
-                            I design sound and audio for games, apps and linear media. Voiceover, Foley, Synthesis, etc.
-                        </p>
+                        <h3 className=''>AUDIO DESIGN</h3>
+                        <ul class='list-disc ml-8'>
+                            <li>foley</li>
+                            <li>field recording</li>
+                            <li>voiceover</li>
+                            <li>sound synthesis</li>
+                        </ul>
 
                     </div>
                     <div className='py-4'>
-                        <h3>Content production, Coordination and Video editing</h3>
-                        <div className='border-b'></div>
-                        <p>
-                            I produce and maintain content for various customers, specializing in music and language learning.
-                        </p>
+                        <h3 className=''>OTHER SKILLS</h3>
+                        <ul class='list-disc ml-8'>
+                            <li>game & software development</li>
+                            <li>video editing</li>
+                            <li>project management</li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
   }
 
   h1, h2, h3, h4, h5 ,h6 {
-    @apply font-bold
+    @apply font-bold 
   }
 
   h1 {
@@ -23,11 +23,11 @@
   }
 
   h2 {
-    @apply text-xl sm:text-2xl lg:text-3xl tracking-widest
+    @apply text-2xl sm:text-3xl lg:text-4xl tracking-widest
   }
 
   h3 {
-    @apply tracking-widest
+    @apply text-xl tracking-xwide
   }
 
   p {

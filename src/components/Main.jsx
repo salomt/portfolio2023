@@ -16,7 +16,7 @@ const Main = () => {
                             </a>
                         </div>
                         <div className='main-icon'>
-                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQs' target='_blank'>
+                            <a href='https://www.youtube.com/channel/UCWC3h6X0fklYLBxCQTvGfnQ' target='_blank'>
                                 <FaYoutube color='black' size={20}/>
                             </a>
                         </div>
