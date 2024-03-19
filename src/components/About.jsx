@@ -9,7 +9,7 @@ const About = () => {
 
                     <h2 className='py-4 text-rose-300'>Who am I?</h2>
 
-                    <p className='py-4'>I'm a guy who has dabbled his whole life with music, audio and some nerdy stuff as well.</p>
+                    <p className='py-4'>I am a guy who has dabbled his whole life with music, audio and some nerdy stuff as well.</p>
                     <p className='py-4'>With my 14 years of experience as a composer, musician, DJ, audio designer and AV engineer, I can make your project or event sound amazing and unique.</p>
 
                     <div> {/* RECOMMENDATIONS QUOTES */}
