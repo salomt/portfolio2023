@@ -10,6 +10,11 @@
     scroll-behavior: smooth!important;
   }
 
+  /* Hash / in-page links: clear fixed navbar + sticky game-music player when ?featured=gamemusic */
+  html[data-sticky-gamemusic-bar="true"] {
+    scroll-padding-top: var(--sticky-gamemusic-anchor-offset, 10.5rem);
+  }
+
   body {
     @apply bg-tommi-bk bg-cover bg-no-repeat bg-fixed bg-top text-[#eceff2] tracking-wide
   }

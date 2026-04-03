@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="flex justify-between items-center w-full px2 2xl:px-16 fixed ">
         <div className="pl-2">
           <h2 className="">Tommi Salomaa</h2>
-          <p>MUSICIAN | AV ENGINEER</p>
+          <p>MUSICIAN | NERD</p>
         </div>
         <div>
           <ul className="hidden md:flex pr-2">
@@ -51,7 +51,7 @@ const Navbar = () => {
             </li>
             {isFeaturedGameMusic && (
               <Link href={`${queryString}#featured`}>
-                <li className="ml-10 uppercase hover:border-b font-bold">game demoreel</li>
+                <li className="ml-10 uppercase hover:border-b font-bold">game showreel</li>
               </Link>
             )}
             <Link href={`${queryString}#about`}>

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react"
 import { useRouter } from "next/router"
+import { GAME_MUSIC_PLAYLIST } from "../data/gamemusicPlaylist"
+import { useFeaturedVideo } from "../context/FeaturedVideoContext"
+
+const FEATURED_YOUTUBE_IFRAME_ID = "featured-demoreel-youtube"
 
 const Featured = () => {
   const router = useRouter()
   const [featuredParam, setFeaturedParam] = useState(null)
-  const [mounted, setMounted] = useState(false)
+  const { setFeaturedVideoPlaying } = useFeaturedVideo()
 
   const anchor = window.location.hash
 
@@ -20,52 +24,38 @@ const Featured = () => {
         setFeaturedParam(null)
         localStorage.removeItem("featuredContent")
       }
-      setMounted(true)
     }
-  }, [router.query])
+  }, [router.query, router.isReady])
 
   useEffect(() => {
     if (featuredParam && !anchor) {
       const timer = setTimeout(() => {
         const featuredElement = document.getElementById("featured")
         if (featuredElement) {
-          const elementPosition = featuredElement.getBoundingClientRect().top + window.scrollY
+          let top = featuredElement.getBoundingClientRect().top + window.scrollY
+          if (featuredParam === "gamemusic") {
+            const raw = getComputedStyle(document.documentElement)
+              .getPropertyValue("--sticky-gamemusic-anchor-offset")
+              .trim()
+            const offset = raw ? parseFloat(raw) : 0
+            top = Math.max(0, top - offset)
+          }
           window.scrollTo({
-            top: elementPosition,
+            top,
             behavior: "smooth",
           })
         }
       }, 1000)
       return () => clearTimeout(timer)
     }
-  }, [featuredParam])
+  }, [featuredParam, anchor])
 
   const featuredContent = {
     gamemusic: {
       title: "Game Music & Audio Design",
-      subtitle: "Composing and producing audio for interactive experiences",
+      subtitle: "",
       video: "https://www.youtube.com/embed/bD6oSswdBQA",
-      projects: [
-        {
-          id: 1,
-          name: "Hotel Hideaway",
-          role: "Music Composition & Audio Design",
-          description: "Social mobile game with adaptive music system",
-        },
-        {
-          id: 2,
-          name: "Dized",
-          role: "Music & SFX Production",
-          description: "Board game learning app with cohesive audio branding",
-        },
-        {
-          id: 3,
-          name: "Retro Shot",
-          role: "Composer & Producer",
-          description: "Original soundtrack awarded 3rd place at Finnish Game Music Awards 2016",
-        },
-      ],
-      skills: ["Music Composition", "Sound Design", "Audio Mixing", "Interactive Audio", "Game Music Theory", "Unity", "Wwise"],
+      playlist: GAME_MUSIC_PLAYLIST,
     },
     liveperforming: {
       title: "Live Performance & DJing",
@@ -147,37 +137,95 @@ const Featured = () => {
     },
   }
 
+  const gamemusicVideoUrl = featuredParam === "gamemusic" && featuredContent.gamemusic?.video ? featuredContent.gamemusic.video : null
+
+  useEffect(() => {
+    if (!gamemusicVideoUrl) {
+      setFeaturedVideoPlaying(false)
+      return undefined
+    }
+
+    let cancelled = false
+    let player
+
+    const applyState = (state) => {
+      if (cancelled || !window.YT) return
+      const { PlayerState } = window.YT
+      const playing = state === PlayerState.PLAYING || state === PlayerState.BUFFERING
+      setFeaturedVideoPlaying(playing)
+    }
+
+    const bindPlayer = () => {
+      if (cancelled || !document.getElementById(FEATURED_YOUTUBE_IFRAME_ID)) return
+      player = new window.YT.Player(FEATURED_YOUTUBE_IFRAME_ID, {
+        events: {
+          onStateChange: (e) => applyState(e.data),
+        },
+      })
+    }
+
+    const ensureApi = () => {
+      if (cancelled) return
+      if (window.YT && window.YT.Player) {
+        bindPlayer()
+        return
+      }
+      const prev = window.onYouTubeIframeAPIReady
+      window.onYouTubeIframeAPIReady = () => {
+        if (typeof prev === "function") prev()
+        bindPlayer()
+      }
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const tag = document.createElement("script")
+        tag.src = "https://www.youtube.com/iframe_api"
+        document.head.appendChild(tag)
+      }
+    }
+
+    ensureApi()
+
+    return () => {
+      cancelled = true
+      setFeaturedVideoPlaying(false)
+      if (player && typeof player.destroy === "function") {
+        try {
+          player.destroy()
+        } catch (_) {
+          /* ignore */
+        }
+      }
+    }
+  }, [gamemusicVideoUrl, setFeaturedVideoPlaying])
+
   if (!featuredParam || !featuredContent[featuredParam]) {
     return null
   }
 
   const content = featuredContent[featuredParam]
 
+  const gamemusicEmbedSrc = content.video && `${content.video}${content.video.includes("?") ? "&" : "?"}enablejsapi=1${typeof window !== "undefined" ? `&origin=${encodeURIComponent(window.location.origin)}` : ""}`
+
   return (
     <div id="featured" className="page-top-div">
-      <div className="max-w-[1240px] m-auto py-8 p-4">
+      <div className="w-full max-w-[1240px] m-auto py-8 px-4">
         <div className="mb-8">
           <p className="uppercase text-xl tracking-widest underline">Featured</p>
-          <h1 className="py-4 text-4xl font-bold text-rose-300">{content.title}</h1>
-          <h2 className="py-2 text-xl text-gray-300 mb-4">{content.subtitle}</h2>
+          <h1 className="py-2 text-4xl font-bold text-rose-300">{content.title}</h1>
+          {content.subtitle && <h2 className="py-2 text-xl text-gray-300 mb-4">{content.subtitle}</h2>}
           {content.description && <p className="text-lg leading-relaxed mb-8">{content.description}</p>}
         </div>
-
-        {/* Featured Video */}
-        {content.video && (
-          <div className="mb-8 flex justify-center">
-            <div className="relative w-full max-w-3xl" style={{ paddingBottom: "56.25%" }}>
-              <iframe className="absolute top-0 left-0 w-full h-full rounded-lg" src={content.video} title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        {featuredParam === "gamemusic" && content.video && (
+          <div className="mb-8 -mx-4 w-[calc(100%+1rem)]">
+            <div className="relative w-3/4 mx-auto aspect-video rounded-lg overflow-hidden shadow-lg shadow-black/40">
+              <iframe id={FEATURED_YOUTUBE_IFRAME_ID} className="absolute inset-0 h-full w-full" src={gamemusicEmbedSrc} title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
           </div>
         )}
 
         {/* Projects */}
         <div className="mb-8">
-          {/* <h3 className="pt-8 text-2xl font-semibold mb-4">Key Projects</h3>
-          <div className="border-b pb-2 mb-6"></div> */}
           <a href="#projects" className="inline-block text-1xl uppercase font-bold hover:underline">
-            Explore shipped key projects →
+            Explore my shipped projects →
           </a>
         </div>
       </div>

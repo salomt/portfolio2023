@@ -1,11 +1,13 @@
 import Head from "next/head"
 import { Inter } from "next/font/google"
 import { useRouter } from "next/router"
+import { FeaturedVideoProvider } from "../context/FeaturedVideoContext"
 import Navbar from "../components/Navbar"
 import Main from "../components/Main"
 import About from "../components/About"
 import Skills from "../components/Skills"
 import Featured from "../components/Featured"
+import StickyGameMusicPlayer from "../components/StickyGameMusicPlayer"
 import Projects from "../components/Projects"
 import Customers from "../components/Customers"
 import Contact from "../components/Contact"
@@ -17,6 +19,7 @@ export default function Home() {
   const { featured } = router.query
 
   return (
+    <FeaturedVideoProvider>
     <div>
       <Head>
         <title>Tommi Salomaa</title>
@@ -26,6 +29,7 @@ export default function Home() {
       </Head>
 
       <Navbar />
+      <StickyGameMusicPlayer />
       <Main />
       {featured && <Featured />}
       <About />
@@ -34,5 +38,6 @@ export default function Home() {
       <Customers />
       <Contact />
     </div>
+    </FeaturedVideoProvider>
   )
 }

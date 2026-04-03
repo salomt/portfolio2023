@@ -1,0 +1,360 @@
+/* Loaded AFTER react-h5-audio-player in StickyGameMusicPlayer.jsx so these win over library defaults.
+   Selector uses data attr so cascade is predictable. */
+
+/* globals.css @layer base: shadow-lg + gradient on every button — strip for this bar.
+   Exclude play/pause: it uses a timed box-shadow pulse when paused. */
+[data-gamemusic-sticky-player] button:not(.rhap_play-pause-button) {
+  box-shadow: none !important;
+}
+
+[data-gamemusic-sticky-player] button {
+  background-image: none !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: auto !important;
+  text-transform: none !important;
+}
+
+[data-gamemusic-sticky-player] ul button {
+  width: 100% !important;
+}
+
+/* Playlist scroll area: scrollbar styling (only when overflow-y-auto shows a bar) */
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(253, 164, 175, 0.55) rgba(255, 255, 255, 0.07);
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  margin: 4px 0;
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-scroll::-webkit-scrollbar-thumb {
+  background: rgba(253, 164, 175, 0.5);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(253, 164, 175, 0.72);
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-rhap-wrap {
+  min-width: 0;
+  margin-left: -0.125rem;
+  margin-right: -0.125rem;
+}
+
+/* Fixed square control — never let flex grow/shrink steal space from the timeline */
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-btn {
+  flex: 0 0 2.5rem !important;
+  width: 2.5rem !important;
+  min-width: 2.5rem !important;
+  max-width: 2.5rem !important;
+  margin-top: 0 !important;
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-rhap.rhap_container,
+[data-gamemusic-sticky-player] .rhap_container {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_horizontal {
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0 !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_horizontal .rhap_controls-section {
+  margin-left: 0.1rem !important;
+  margin-top: 0 !important;
+}
+
+/* Cap how much horizontal space the timeline row can take (library uses flex: 3 1 auto here). */
+[data-gamemusic-sticky-player] .rhap_progress-section {
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+  max-width: min(100%, 48%) !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_progress-container {
+  height: 16px !important;
+  /* Kill library margin: 0 calc(10px + 1%) — the 1% is huge on wide viewports */
+  margin: 0 2px !important;
+  flex: 1 1 0% !important;
+  min-width: 0 !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_time {
+  color: rgba(236, 239, 242, 0.55) !important;
+  font-size: 0.65rem !important;
+  margin: 0 1px !important;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+  min-width: 0;
+}
+
+[data-gamemusic-sticky-player] .rhap_current-time,
+[data-gamemusic-sticky-player] .rhap_total-time {
+  max-width: 2.75rem;
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: center;
+}
+
+[data-gamemusic-sticky-player] .rhap_progress-bar {
+  background-color: rgba(236, 239, 242, 0.12) !important;
+  height: 5px !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_progress-filled,
+[data-gamemusic-sticky-player] .rhap_volume-filled {
+  background-color: #fda4af !important;
+}
+
+/* Playhead: library ships 20×20px; force a small dot */
+[data-gamemusic-sticky-player] .rhap_progress-bar .rhap_progress-indicator {
+  box-sizing: border-box !important;
+  background: #fda4af !important;
+  box-shadow: 0 0 1px rgba(253, 164, 175, 0.35) !important;
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  max-width: 6px !important;
+  min-height: 6px !important;
+  max-height: 6px !important;
+  margin-left: -3px !important;
+  top: -1px !important;
+  border-radius: 50% !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_volume-bar {
+  background-color: rgba(236, 239, 242, 0.12) !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_volume-indicator {
+  background: #fda4af !important;
+  box-shadow: none !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_button-clear {
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_button-clear:hover,
+[data-gamemusic-sticky-player] .rhap_button-clear:focus {
+  box-shadow: none !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_main-controls-button,
+[data-gamemusic-sticky-player] .rhap_volume-button {
+  color: rgba(236, 239, 242, 0.65) !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_main-controls-button:hover,
+[data-gamemusic-sticky-player] .rhap_volume-button:hover {
+  color: #fda4af !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_controls-section {
+  flex: 0 0 auto !important;
+  gap: 0.2rem;
+}
+
+[data-gamemusic-sticky-player] .rhap_main-controls {
+  gap: 0.15rem !important;
+  align-items: center !important;
+}
+
+/* Skip / secondary transport — slightly smaller than play */
+[data-gamemusic-sticky-player] .rhap_main-controls-button {
+  font-size: 22px !important;
+  width: 26px !important;
+  height: 26px !important;
+  margin: 0 !important;
+}
+
+/* Prominent play / pause — flex centers the SVG (library default alignment is often off) */
+[data-gamemusic-sticky-player] .rhap_play-pause-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1.45rem !important;
+  width: 2.125rem !important;
+  height: 2.125rem !important;
+  min-width: 2.125rem !important;
+  min-height: 2.125rem !important;
+  line-height: 0 !important;
+  padding: 0 !important;
+  border-radius: 9999px !important;
+  background-color: rgba(253, 164, 175, 0.08) !important;
+  border: 1px solid rgba(253, 164, 175, 0.22) !important;
+  color: #fda4af !important;
+  margin: 0 0.1rem !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_play-pause-button svg {
+  display: block !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_play-pause-button:hover {
+  background-color: rgba(253, 164, 175, 0.18) !important;
+  color: #fff !important;
+  border-color: rgba(253, 164, 175, 0.45) !important;
+  box-shadow: none !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_container.rhap_play-status--playing .rhap_play-pause-button {
+  box-shadow: none !important;
+}
+
+/* Paused: periodic white “wipe” across status label + play button (synced timing) */
+[data-gamemusic-sticky-player][data-idle-pulse="true"] .sticky-gamemusic-status-label {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-gamemusic-sticky-player][data-idle-pulse="true"] .sticky-gamemusic-status-label::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: 0;
+  width: 38%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.05) 60%,
+    transparent 100%
+  );
+  transform: translateX(-130%) skewX(-16deg);
+  /* Shorter path + quicker fade so the shine doesn’t trail past the copy */
+  animation: sticky-gamemusic-white-wipe-label 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+[data-gamemusic-sticky-player][data-idle-pulse="true"] .rhap_play-pause-button {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+[data-gamemusic-sticky-player][data-idle-pulse="true"] .rhap_play-pause-button::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: 0;
+  width: 70%;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 38%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0.08) 62%,
+    transparent 100%
+  );
+  transform: translateX(-130%) skewX(-16deg);
+  animation: sticky-gamemusic-white-wipe-button 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+[data-gamemusic-sticky-player][data-idle-pulse="true"] .rhap_play-pause-button:hover::before {
+  animation-play-state: paused;
+}
+
+@keyframes sticky-gamemusic-white-wipe-label {
+  0%,
+  12% {
+    transform: translateX(-130%) skewX(-16deg);
+    opacity: 0;
+  }
+  /* Same 10s loop; wipe segment ~3× faster (compressed keyframe span) */
+  13.67% {
+    opacity: 1;
+  }
+  16% {
+    transform: translateX(88%) skewX(-16deg);
+    opacity: 1;
+  }
+  17.67% {
+    transform: translateX(102%) skewX(-16deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(102%) skewX(-16deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sticky-gamemusic-white-wipe-button {
+  0%,
+  12% {
+    transform: translateX(-130%) skewX(-16deg);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(220%) skewX(-16deg);
+    opacity: 1;
+  }
+  22% {
+    transform: translateX(220%) skewX(-16deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(220%) skewX(-16deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-gamemusic-sticky-player][data-idle-pulse="true"] .sticky-gamemusic-status-label::after,
+  [data-gamemusic-sticky-player][data-idle-pulse="true"] .rhap_play-pause-button::before {
+    animation: none !important;
+  }
+}
+
+[data-gamemusic-sticky-player] .rhap_volume-button {
+  font-size: 19px !important;
+  width: 19px !important;
+  height: 19px !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_volume-controls {
+  flex: 0 0 68px;
+}
+
+[data-gamemusic-sticky-player] .rhap_volume-container {
+  flex: 0 1 56px !important;
+}
+
+@media (max-width: 639px) {
+  [data-gamemusic-sticky-player] .rhap_volume-controls {
+    display: none !important;
+  }
+
+  [data-gamemusic-sticky-player] .rhap_progress-section {
+    max-width: min(100%, 58%) !important;
+  }
+}
