@@ -15,6 +15,25 @@
   text-transform: none !important;
 }
 
+/* globals @layer base: active:-translate-x-2 active:translate-y-2 on all buttons — replace with subtle shrink on controls only */
+[data-gamemusic-sticky-player] button:active {
+  transform: none !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_main-controls-button,
+[data-gamemusic-sticky-player] .rhap_play-pause-button,
+[data-gamemusic-sticky-player] .rhap_volume-button,
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-btn {
+  transition: transform 0.12s ease !important;
+}
+
+[data-gamemusic-sticky-player] .rhap_main-controls-button:active,
+[data-gamemusic-sticky-player] .rhap_play-pause-button:active,
+[data-gamemusic-sticky-player] .rhap_volume-button:active,
+[data-gamemusic-sticky-player] .sticky-gamemusic-playlist-btn:active {
+  transform: scale(0.94) !important;
+}
+
 [data-gamemusic-sticky-player] ul button {
   width: 100% !important;
 }
@@ -54,11 +73,15 @@
 
 /* Fixed square control — never let flex grow/shrink steal space from the timeline */
 [data-gamemusic-sticky-player] .sticky-gamemusic-playlist-btn {
-  flex: 0 0 2.5rem !important;
-  width: 2.5rem !important;
-  min-width: 2.5rem !important;
-  max-width: 2.5rem !important;
+  flex: 0 0 2.75rem !important;
+  width: 2.75rem !important;
+  min-width: 2.75rem !important;
+  max-width: 2.75rem !important;
   margin-top: 0 !important;
+}
+
+[data-gamemusic-sticky-player] {
+  overscroll-behavior: contain;
 }
 
 [data-gamemusic-sticky-player] .sticky-gamemusic-rhap.rhap_container,
@@ -66,6 +89,16 @@
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
+}
+
+/* Safari: avoid page scroll / rubber-band while dragging scrubber or volume */
+[data-gamemusic-sticky-player] .rhap_progress-container,
+[data-gamemusic-sticky-player] .rhap_progress-bar,
+[data-gamemusic-sticky-player] .rhap_volume-bar-area,
+[data-gamemusic-sticky-player] .rhap_volume-bar {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 [data-gamemusic-sticky-player] .rhap_horizontal {
@@ -87,7 +120,7 @@
 }
 
 [data-gamemusic-sticky-player] .rhap_progress-container {
-  height: 16px !important;
+  height: 18px !important;
   /* Kill library margin: 0 calc(10px + 1%) — the 1% is huge on wide viewports */
   margin: 0 2px !important;
   flex: 1 1 0% !important;
@@ -96,7 +129,7 @@
 
 [data-gamemusic-sticky-player] .rhap_time {
   color: rgba(236, 239, 242, 0.55) !important;
-  font-size: 0.65rem !important;
+  font-size: 0.7rem !important;
   margin: 0 1px !important;
   flex-shrink: 0;
   font-variant-numeric: tabular-nums;
@@ -114,7 +147,7 @@
 
 [data-gamemusic-sticky-player] .rhap_progress-bar {
   background-color: rgba(236, 239, 242, 0.12) !important;
-  height: 5px !important;
+  height: 6px !important;
 }
 
 [data-gamemusic-sticky-player] .rhap_progress-filled,
@@ -127,13 +160,13 @@
   box-sizing: border-box !important;
   background: #fda4af !important;
   box-shadow: 0 0 1px rgba(253, 164, 175, 0.35) !important;
-  width: 6px !important;
-  height: 6px !important;
-  min-width: 6px !important;
-  max-width: 6px !important;
-  min-height: 6px !important;
-  max-height: 6px !important;
-  margin-left: -3px !important;
+  width: 7px !important;
+  height: 7px !important;
+  min-width: 7px !important;
+  max-width: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  margin-left: -3.5px !important;
   top: -1px !important;
   border-radius: 50% !important;
 }
@@ -173,15 +206,15 @@
 }
 
 [data-gamemusic-sticky-player] .rhap_main-controls {
-  gap: 0.15rem !important;
+  gap: 0.2rem !important;
   align-items: center !important;
 }
 
 /* Skip / secondary transport — slightly smaller than play */
 [data-gamemusic-sticky-player] .rhap_main-controls-button {
-  font-size: 22px !important;
-  width: 26px !important;
-  height: 26px !important;
+  font-size: 25px !important;
+  width: 30px !important;
+  height: 30px !important;
   margin: 0 !important;
 }
 
@@ -190,11 +223,11 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  font-size: 1.45rem !important;
-  width: 2.125rem !important;
-  height: 2.125rem !important;
-  min-width: 2.125rem !important;
-  min-height: 2.125rem !important;
+  font-size: 1.6rem !important;
+  width: 2.375rem !important;
+  height: 2.375rem !important;
+  min-width: 2.375rem !important;
+  min-height: 2.375rem !important;
   line-height: 0 !important;
   padding: 0 !important;
   border-radius: 9999px !important;
@@ -336,13 +369,13 @@
 }
 
 [data-gamemusic-sticky-player] .rhap_volume-button {
-  font-size: 19px !important;
-  width: 19px !important;
-  height: 19px !important;
+  font-size: 21px !important;
+  width: 21px !important;
+  height: 21px !important;
 }
 
 [data-gamemusic-sticky-player] .rhap_volume-controls {
-  flex: 0 0 68px;
+  flex: 0 0 72px;
 }
 
 [data-gamemusic-sticky-player] .rhap_volume-container {

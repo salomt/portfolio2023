@@ -5,7 +5,8 @@ import "@/styles/globals.css"
 import "react-h5-audio-player/lib/styles.css"
 import "@/styles/sticky-game-music-player.css"
 
-const STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM = { default: 2.5, md: 5.5 }
+/* Navbar (3.5rem / 4rem) + sticky player bar (~3.75–4rem) — hash scroll padding */
+const STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM = { default: 7.25, md: 8 }
 
 function StickyGamemusicScrollOffset() {
   const router = useRouter()

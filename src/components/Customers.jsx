@@ -1,7 +1,5 @@
 import React from "react"
 import Image from "next/image"
-import Link from "next/link"
-
 const Customers = () => {
   const companies = [
     {
@@ -165,13 +163,14 @@ const Customers = () => {
           <h3 className="pt-8">Bands</h3>
           <div className="border-b pb-2 m-auto"></div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4">
-            {bands.map((band) => (
-              <div key={band.id} className="grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300">
-                <a href={band.url} target="_blank">
+            {bands.map((band) => {
+              const hasLink = Boolean(band.url?.trim())
+              const body = (
+                <>
                   <div className=" py-2 p-4 flex items-center justify-center">
                     <Image src={band.image} alt={band.alt} width={band.width} height={band.height} />
                   </div>
-                  <div className="py2 p-4 text-black">
+                  <div className="py-2 p-4 text-black">
                     <h4>{band.title}</h4>
                     <ul className="list-disc p-2">
                       {band.items.map((item, index) => (
@@ -179,9 +178,20 @@ const Customers = () => {
                       ))}
                     </ul>
                   </div>
-                </a>
-              </div>
-            ))}
+                </>
+              )
+              return (
+                <div key={band.id} className="grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300">
+                  {hasLink ? (
+                    <a href={band.url} target="_blank" rel="noopener noreferrer" className="block h-full text-inherit no-underline">
+                      {body}
+                    </a>
+                  ) : (
+                    <div className="block h-full cursor-default">{body}</div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

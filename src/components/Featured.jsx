@@ -215,7 +215,7 @@ const Featured = () => {
           {content.description && <p className="text-lg leading-relaxed mb-8">{content.description}</p>}
         </div>
         {featuredParam === "gamemusic" && content.video && (
-          <div className="mb-8 -mx-4 w-[calc(100%+1rem)]">
+          <div className="mb-8 -mx-4 w-[calc(100%+2rem)]">
             <div className="relative mx-auto aspect-video w-3/4 overflow-hidden rounded-lg ring-1 ring-white/10">
               <iframe id={FEATURED_YOUTUBE_IFRAME_ID} className="absolute inset-0 h-full w-full" src={gamemusicEmbedSrc} title="Featured Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>

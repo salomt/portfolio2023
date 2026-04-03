@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <FeaturedVideoProvider>
-    <div>
+    <div className="min-w-0 overflow-x-clip">
       <Head>
         <title>Tommi Salomaa</title>
         <meta name="description" content="Tommi Salomaa portfolio site" />

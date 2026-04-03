@@ -8,15 +8,18 @@
   html {
     --scroll-behavior: smooth!important;
     scroll-behavior: smooth!important;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   /* Hash / in-page links: clear fixed navbar + sticky game-music player when ?featured=gamemusic */
   html[data-sticky-gamemusic-bar="true"] {
-    scroll-padding-top: var(--sticky-gamemusic-anchor-offset, 10.5rem);
+    scroll-padding-top: var(--sticky-gamemusic-anchor-offset, 8rem);
   }
 
+  /* bg-fixed breaks background sizing/position on iOS Safari; use fixed only from md up */
   body {
-    @apply bg-tommi-bk bg-cover bg-no-repeat bg-fixed bg-top text-[#eceff2] tracking-wide
+    @apply bg-tommi-bk bg-cover bg-no-repeat bg-top text-[#eceff2] tracking-wide bg-scroll md:bg-fixed overflow-x-clip max-w-full
   }
 
   h1, h2, h3, h4, h5 ,h6 {

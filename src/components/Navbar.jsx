@@ -38,15 +38,14 @@ const Navbar = () => {
   }, [])
 
   return (
+    <>
     <div
-      className={`fixed z-[100] h-20 w-full bg-[#000620]/80 pt-4 ease-in-out duration-500 lg:h-24 ${
+      className={`fixed left-0 right-0 top-0 z-[100] flex h-14 w-full items-center justify-between bg-[#000620]/80 px-2 ease-in-out duration-500 sm:px-4 lg:h-16 2xl:px-16 ${
         shadow ? "border-b border-white/10" : ""
       }`}
     >
-      <div className="flex justify-between items-center w-full px2 2xl:px-16 fixed ">
-        <div className="pl-2">
-          <h2 className="text-lg font-bold leading-tight lg:text-2xl">Tommi Salomaa</h2>
-          <p className="text-[0.65rem] uppercase tracking-widest text-[#eceff2]/85 lg:text-xs">MUSICIAN | NERD</p>
+        <div className="pl-0 sm:pl-1">
+          <h2 className="text-lg font-bold leading-none lg:text-2xl">Tommi Salomaa</h2>
         </div>
         <div>
           <ul className="hidden lg:flex pr-2">
@@ -74,13 +73,13 @@ const Navbar = () => {
               <li className="ml-10 uppercase hover:border-b">contact</li>
             </Link>
           </ul>
-          <div onClick={handleNav} className="cursor-pointer pr-2 lg:hidden">
+          <div onClick={handleNav} className="cursor-pointer pr-0 sm:pr-2 lg:hidden">
             <AiOutlineMenu size={35} />
           </div>
         </div>
-      </div>
+    </div>
 
-      <div className={nav ? "fixed left-0 top-0 h-screen w-full bg-black/70 lg:hidden" : ""}>
+      <div className={nav ? "fixed left-0 top-0 z-[100] h-screen w-full bg-black/70 lg:hidden" : ""}>
         <div className={nav ? "fixed left-0 top-0 h-screen w-[75%] bg-[#ecf0f3] p-10 ease-in duration-500 sm:w-[60%] md:w-[45%]" : "fixed left-[-100%] top-0 h-screen p-10 ease-in duration-500"}>
           <div>
             <div className="flex w-full items-center justify-between">
@@ -161,7 +160,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

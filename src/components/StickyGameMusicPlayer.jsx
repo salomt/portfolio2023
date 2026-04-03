@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react"
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react"
 import { useRouter } from "next/router"
 import AudioPlayer from "react-h5-audio-player"
 import { MdPlaylistPlay } from "react-icons/md"
@@ -104,7 +104,40 @@ const StickyGameMusicPlayer = () => {
     }
   }, [playlistOpen, updatePlaylistScrollUi, n])
 
-  if (!router.isReady || router.query.featured !== "gamemusic") {
+  const isGamemusicBar = router.isReady && router.query.featured === "gamemusic"
+
+  /** Safari scrolls the page while dragging timeline/volume; CSS touch-action + non-passive preventDefault. */
+  useLayoutEffect(() => {
+    if (!isGamemusicBar) return undefined
+
+    const root = barRef.current
+    if (!root) return undefined
+
+    const sliderSel =
+      ".rhap_progress-container, .rhap_volume-bar-area, .rhap_progress-indicator, .rhap_volume-indicator"
+
+    const inSlider = (target) => target instanceof Element && !!target.closest(sliderSel)
+
+    const onTouchMove = (e) => {
+      if (!root.contains(e.target)) return
+      if (inSlider(e.target)) e.preventDefault()
+    }
+
+    const onWheel = (e) => {
+      if (!root.contains(e.target)) return
+      if (inSlider(e.target)) e.preventDefault()
+    }
+
+    document.addEventListener("touchmove", onTouchMove, { passive: false, capture: true })
+    document.addEventListener("wheel", onWheel, { passive: false, capture: true })
+
+    return () => {
+      document.removeEventListener("touchmove", onTouchMove, { capture: true })
+      document.removeEventListener("wheel", onWheel, { capture: true })
+    }
+  }, [isGamemusicBar])
+
+  if (!isGamemusicBar) {
     return null
   }
 
@@ -113,21 +146,21 @@ const StickyGameMusicPlayer = () => {
       ref={barRef}
       data-gamemusic-sticky-player
       data-idle-pulse={idlePulse ? "true" : "false"}
-      className="sticky-game-music-player fixed top-20 left-0 right-0 z-[90] border-b border-[rgba(253,164,175,0.25)] bg-[#000620]/90 lg:top-24"
+      className="sticky-game-music-player fixed left-0 right-0 top-14 z-[90] border-b border-[rgba(253,164,175,0.25)] bg-[#000620]/90 lg:top-16"
     >
-      <div className="sticky-gamemusic-bar max-w-[1240px] mx-auto pl-3 sm:pl-4 pr-3 sm:pr-5 py-2 flex flex-nowrap items-center gap-1 sm:gap-1.5">
+      <div className="sticky-gamemusic-bar mx-auto flex max-w-[1240px] flex-nowrap items-center gap-1.5 py-2.5 pl-3 pr-3 sm:gap-2 sm:pl-4 sm:pr-5 sm:py-3">
         <button
           type="button"
-          className="min-w-0 w-[6rem] sm:w-[11rem] shrink-0 pl-1.5 sm:pl-2 pr-1 py-1 -my-1 text-left rounded-md border border-transparent hover:border-rose-300/20 hover:bg-rose-300/5 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000620]"
+          className="min-w-0 w-[6.5rem] shrink-0 rounded-md border border-transparent py-1 pl-1.5 pr-1 text-left transition-colors hover:border-rose-300/20 hover:bg-rose-300/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000620] sm:w-[11.5rem] sm:pl-2"
           onClick={() => setPlaylistOpen((o) => !o)}
           aria-expanded={playlistOpen}
           aria-controls="sticky-gamemusic-playlist-panel"
           aria-label={playlistOpen ? "Close playlist" : "Open playlist"}
         >
-          <p className="sticky-gamemusic-status-label text-[0.62rem] sm:text-[0.65rem] uppercase tracking-[0.16em] text-rose-300/75 leading-none" aria-live="polite">
+          <p className="sticky-gamemusic-status-label text-[0.68rem] uppercase leading-none tracking-[0.16em] text-rose-300/75 sm:text-[0.72rem]" aria-live="polite">
             {isPlaying ? "Now playing" : featuredVideoPlaying ? "Video" : "Press play"}
           </p>
-          <p className="text-[0.8125rem] sm:text-sm font-semibold text-[#eceff2] truncate leading-tight mt-0.5" title={track.title}>
+          <p className="mt-0.5 truncate text-[0.875rem] font-semibold leading-tight text-[#eceff2] sm:text-[0.95rem]" title={track.title}>
             {track.title}
           </p>
         </button>
@@ -148,8 +181,8 @@ const StickyGameMusicPlayer = () => {
           />
         </div>
 
-        <button type="button" className="sticky-gamemusic-playlist-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-rose-300/30 p-0 text-rose-200 hover:bg-rose-300/10 transition-colors" aria-expanded={playlistOpen} aria-controls="sticky-gamemusic-playlist-panel" aria-label={playlistOpen ? "Close playlist" : "Open playlist"} title={playlistOpen ? "Close playlist" : "Playlist"} onClick={() => setPlaylistOpen((o) => !o)}>
-          <MdPlaylistPlay className="h-6 w-6" aria-hidden />
+        <button type="button" className="sticky-gamemusic-playlist-btn flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-rose-300/30 p-0 text-rose-200 transition-colors hover:bg-rose-300/10" aria-expanded={playlistOpen} aria-controls="sticky-gamemusic-playlist-panel" aria-label={playlistOpen ? "Close playlist" : "Open playlist"} title={playlistOpen ? "Close playlist" : "Playlist"} onClick={() => setPlaylistOpen((o) => !o)}>
+          <MdPlaylistPlay className="h-7 w-7" aria-hidden />
         </button>
       </div>
 
@@ -169,7 +202,7 @@ const StickyGameMusicPlayer = () => {
                       handleSongClick(idx)
                       setPlaylistOpen(false)
                     }}
-                    className={`w-full text-left rounded-md px-3 py-2 text-sm transition-colors ${idx === currentTrack ? "bg-rose-300/15 text-rose-200 border-l-2 border-rose-300 pl-[0.625rem]" : "text-[#eceff2]/90 hover:bg-white/5"}`}
+                    className={`w-full rounded-md px-3 py-2.5 text-left text-[0.9375rem] transition-colors sm:py-3 ${idx === currentTrack ? "border-l-2 border-rose-300 bg-rose-300/15 pl-[0.625rem] text-rose-200" : "text-[#eceff2]/90 hover:bg-white/5"}`}
                   >
                     <span className="font-medium">{t.title}</span>
                     {t.artist && <span className="text-gray-400 text-xs block sm:inline sm:ml-2">{t.artist}</span>}

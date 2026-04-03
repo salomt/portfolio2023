@@ -11,7 +11,7 @@ const Projects = () => {
       image: "/assets/projectpics/hotelhideaway.png",
       width: 300,
       height: 200,
-      description: "Music composition and audio design for a social mobile game. (2015- Sulake Corporation)",
+      description: "Music composition and audio design for a social mobile game. (2015-2023 Sulake Corporation)",
     },
     {
       id: 2,
@@ -34,7 +34,7 @@ const Projects = () => {
     {
       id: 4,
       title: "ÄÄNNEKOULU",
-      url: "",
+      url: "https://aannekoulu.fi/",
       image: "/assets/projectpics/aannekoulu.jpg",
       width: 250,
       height: 200,
@@ -74,7 +74,7 @@ const Projects = () => {
       image: "/assets/projectpics/agdrive.jpeg",
       width: 500,
       height: 200,
-      description: "Producing a track Riding High for a game soundtrack for AG Drive, a futuristic driving game.",
+      description: "Producing a track for a game soundtrack for AG Drive, a futuristic driving game (Zorg Games).",
     },
     {
       id: 9,
@@ -84,6 +84,15 @@ const Projects = () => {
       width: 500,
       height: 200,
       description: "Composing and producing soundtrack and SFX for mobile game Rock Runners (Recoil Games)",
+    },
+    {
+      id: 10,
+      title: "YOGA RETREAT",
+      url: "https://www.youtube.com/watch?v=NqfadwuJm78",
+      image: "/assets/projectpics/yogaretreat.png",
+      width: 250,
+      height: 250,
+      description: "Audio design for a yoga-themed social game (Gajatri Studios).",
     },
   ]
 
