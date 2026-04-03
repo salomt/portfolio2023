@@ -7,4 +7,5 @@ export const GAME_MUSIC_PLAYLIST = [
   { src: "/assets/music/retroshot_coldnews.mp3", title: "Retro Shot - Cold News" },
   { src: "/assets/music/hotelhideaway_velvetroom.mp3", title: "Hotel Hideaway - Velvet Room" },
   { src: "/assets/music/hotelhideaway_darkalley.mp3", title: "Hotel Hideaway - Dark Alley" },
+  { src: "/assets/music/rockrunners_theme.mp3", title: "Rock Runners - Theme" },
 ]

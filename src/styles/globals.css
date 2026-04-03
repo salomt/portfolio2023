@@ -2,67 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-
   html {
-    --scroll-behavior: smooth!important;
-    scroll-behavior: smooth!important;
+    /* Hash / Featured scroll: 0 by default; 4rem while sticky music bar is on (see _app.js data attr). */
+    --page-anchor-offset: 0px;
+    scroll-padding-top: var(--page-anchor-offset);
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
     overflow-x: clip;
     max-width: 100%;
   }
 
-  /* Hash / in-page links: clear fixed navbar + sticky game-music player when ?featured=gamemusic */
-  html[data-sticky-gamemusic-bar="true"] {
-    scroll-padding-top: var(--sticky-gamemusic-anchor-offset, 8rem);
+  html[data-sticky-music-player="true"] {
+    --page-anchor-offset: 4rem;
   }
 
   /* bg-fixed breaks background sizing/position on iOS Safari; use fixed only from md up */
   body {
-    @apply bg-tommi-bk bg-cover bg-no-repeat bg-top text-[#eceff2] tracking-wide bg-scroll md:bg-fixed overflow-x-clip max-w-full
+    @apply bg-tommi-bk bg-cover bg-no-repeat bg-top text-[#eceff2] tracking-wide bg-scroll md:bg-fixed overflow-x-clip max-w-full;
   }
 
-  h1, h2, h3, h4, h5 ,h6 {
-    @apply font-bold 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl
+    @apply text-4xl sm:text-5xl md:text-6xl;
   }
 
   h2 {
-    @apply text-2xl sm:text-3xl lg:text-4xl tracking-widest
+    @apply text-2xl sm:text-3xl lg:text-4xl tracking-widest;
   }
 
   h3 {
-    @apply text-xl tracking-xwide
+    @apply text-xl tracking-xwide;
   }
 
   p {
-    @apply text-xs md:text-sm lg:text-base
+    @apply text-xs md:text-sm lg:text-base;
   }
 
   li {
-    @apply cursor-pointer text-base
+    @apply cursor-pointer text-base;
   }
 
   button {
-    @apply rounded-xl uppercase bg-gradient-to-r from-[#565a1e5a] to-[#a2a2a2] text-white w-full mt-2 p-4 active:-translate-x-2 active:translate-y-2
+    @apply rounded-xl uppercase bg-gradient-to-r from-[#565a1e5a] to-[#a2a2a2] text-white w-full mt-2 p-4 active:-translate-x-2 active:translate-y-2;
   }
 }
 
 .main-icon {
-    @apply rounded-full bg-white p-3 sm:p-4 cursor-pointer hover:scale-105 ease-in duration-300
+  @apply rounded-full bg-white p-3 sm:p-4 cursor-pointer hover:scale-105 ease-in duration-300;
 }
 
 .nav-icon {
-    @apply rounded-full p-3 cursor-pointer hover:scale-105 ease-in duration-300
+  @apply rounded-full p-3 cursor-pointer hover:scale-105 ease-in duration-300;
 }
 
 .contact-icon {
-  @apply rounded-full bg-white p-3 cursor-pointer hover:scale-105 ease-in duration-300
+  @apply rounded-full bg-white p-3 cursor-pointer hover:scale-105 ease-in duration-300;
 }
 
 .page-top-div {
-  @apply w-full lg:min-h-screen p-2 flex items-center py-20 bg-[#000620] bg-opacity-75
+  @apply w-full lg:min-h-screen p-2 flex items-center py-20 bg-[#000620] bg-opacity-75;
 }

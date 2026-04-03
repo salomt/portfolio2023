@@ -5,6 +5,19 @@ import { useFeaturedVideo } from "../context/FeaturedVideoContext"
 
 const FEATURED_YOUTUBE_IFRAME_ID = "featured-demoreel-youtube"
 
+/** Resolves `html { --page-anchor-offset }` from globals.css to pixels (any CSS length). */
+function getPageAnchorOffsetPx() {
+  if (typeof document === "undefined") return 0
+  const root = document.documentElement
+  const probe = document.createElement("div")
+  probe.style.cssText =
+    "position:absolute;left:-9999px;width:var(--page-anchor-offset,0px);height:0;visibility:hidden;pointer-events:none"
+  root.appendChild(probe)
+  const px = probe.getBoundingClientRect().width
+  root.removeChild(probe)
+  return px
+}
+
 const Featured = () => {
   const router = useRouter()
   const [featuredParam, setFeaturedParam] = useState(null)
@@ -32,14 +45,8 @@ const Featured = () => {
       const timer = setTimeout(() => {
         const featuredElement = document.getElementById("featured")
         if (featuredElement) {
-          let top = featuredElement.getBoundingClientRect().top + window.scrollY
-          if (featuredParam === "gamemusic") {
-            const raw = getComputedStyle(document.documentElement)
-              .getPropertyValue("--sticky-gamemusic-anchor-offset")
-              .trim()
-            const offset = raw ? parseFloat(raw) : 0
-            top = Math.max(0, top - offset)
-          }
+          const offset = getPageAnchorOffsetPx()
+          const top = Math.max(0, featuredElement.getBoundingClientRect().top + window.scrollY - offset)
           window.scrollTo({
             top,
             behavior: "smooth",

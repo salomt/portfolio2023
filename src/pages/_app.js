@@ -5,36 +5,20 @@ import "@/styles/globals.css"
 import "react-h5-audio-player/lib/styles.css"
 import "@/styles/sticky-game-music-player.css"
 
-/* Navbar (3.5rem / 4rem) + sticky player bar (~3.75–4rem) — hash scroll padding */
-const STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM = { default: 7.25, md: 8 }
-
-function StickyGamemusicScrollOffset() {
+/** Sets `html[data-sticky-music-player]` so `--page-anchor-offset` is 4rem vs 0 (see globals.css). */
+function StickyMusicPlayerAnchorOffset() {
   const router = useRouter()
 
   useEffect(() => {
-    if (!router.isReady) return
+    if (!router.isReady) return undefined
 
-    const apply = () => {
-      const active = router.pathname === "/" && String(router.query.featured || "") === "gamemusic"
-      const root = document.documentElement
-      if (active) {
-        root.dataset.stickyGamemusicBar = "true"
-        const rem = window.matchMedia("(min-width: 1024px)").matches ? STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.md : STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.default
-        root.style.setProperty("--sticky-gamemusic-anchor-offset", `${rem * 16}px`)
-      } else {
-        root.dataset.stickyGamemusicBar = "false"
-        root.style.removeProperty("--sticky-gamemusic-anchor-offset")
-      }
-    }
+    const root = document.documentElement
+    const active = router.pathname === "/" && String(router.query.featured || "") === "gamemusic"
 
-    apply()
-    const mql = window.matchMedia("(min-width: 1024px)")
-    mql.addEventListener("change", apply)
-    return () => {
-      mql.removeEventListener("change", apply)
-      document.documentElement.dataset.stickyGamemusicBar = "false"
-      document.documentElement.style.removeProperty("--sticky-gamemusic-anchor-offset")
-    }
+    if (active) root.dataset.stickyMusicPlayer = "true"
+    else root.removeAttribute("data-sticky-music-player")
+
+    return () => root.removeAttribute("data-sticky-music-player")
   }, [router.isReady, router.pathname, router.query.featured])
 
   return null
@@ -43,7 +27,7 @@ function StickyGamemusicScrollOffset() {
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <StickyGamemusicScrollOffset />
+      <StickyMusicPlayerAnchorOffset />
       <Component {...pageProps} />
     </>
   )

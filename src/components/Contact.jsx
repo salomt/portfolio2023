@@ -9,7 +9,7 @@ const socialBtn =
 
 const Contact = () => {
   return (
-    <div id="contact" className="w-full scroll-mt-24 bg-[#000620]/75 px-4 py-16 sm:px-6 sm:py-20 lg:scroll-mt-28">
+    <div id="contact" className="w-full bg-[#000620]/75 px-4 py-16 sm:px-6 sm:py-20">
       <div className="mx-auto max-w-[1240px]">
         <p className="text-xl uppercase tracking-widest underline">Contact</p>
         <h2 className="py-4 text-rose-300">Get in touch!</h2>

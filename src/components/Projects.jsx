@@ -10,7 +10,7 @@ const Projects = () => {
       url: "https://www.hotelhideawaythegame.com/",
       image: "/assets/projectpics/hotelhideaway.png",
       width: 300,
-      height: 200,
+      height: 150,
       description: "Music composition and audio design for a social mobile game. (2015-2023 Sulake Corporation)",
     },
     {
@@ -19,7 +19,7 @@ const Projects = () => {
       url: "https://dized.com/",
       image: "/assets/projectpics/Dized_2017.jpeg",
       width: 300,
-      height: 200,
+      height: 150,
       description: "Music, SFX and audio direction for a board game learning product. (2017-2018, Playmore Games Oy)",
     },
     {
@@ -28,7 +28,7 @@ const Projects = () => {
       url: "https://www.moominls.com/",
       image: "/assets/customerlogos/Logo_MLS.png",
       width: 500,
-      height: 200,
+      height: 150,
       description: "Voiceover recording and editing, music composition for language learning product for children.",
     },
     {
@@ -36,8 +36,8 @@ const Projects = () => {
       title: "ÄÄNNEKOULU",
       url: "https://aannekoulu.fi/",
       image: "/assets/projectpics/aannekoulu.jpg",
-      width: 250,
-      height: 200,
+      width: 200,
+      height: 150,
       description: "Developing learning games for helping children learn pronounciation.",
     },
     {
