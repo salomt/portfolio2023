@@ -22,15 +22,15 @@ const About = () => {
             </p>
             <p className="pt-8 italic text-rose-300">&quot;Tommi is a very talented musician and delight to work with. His knowledge of video game soundtracks is vast and can be useful for reference and entertainment...I was also impressed with his eagerness to help in other areas, such as learning scripting for game design and development tasks.</p>
             <p className="text-sm">
-              &emsp;<span className="font-bold">-Shane Culp</span>, Game Proucer, Engineering Leader, Creative Technologist
+              &emsp;<span className="font-bold">-Shane Culp</span>, Game Producer, Engineering Lead, Creative Technologist
             </p>
             <p className="pt-8 italic text-rose-300">&quot;Tommi provided the perfect musical supplement to our gaming themed event and handled both DJ and live playing duties with great skill. Highly recommended.&quot;</p>
             <p className="text-sm">
-              &emsp;<span className="font-bold">-Samuli Syvähuoko</span>, serial entrepreneur, founding member of several game studios including Remedy
+              &emsp;<span className="font-bold">-Samuli Syvähuoko</span>, Serial Entrepreneur, Founding member of several game studios including Remedy
             </p>
             <p className="pt-8 italic text-rose-300">&quot;I have worked with Tommi in several projects. His ability to create music, sound effects and even build the whole set-up is amazing. His superpower is listening the customer and bring life to an idea from a scratch. Projects have always been on time and successful.&quot;</p>
             <p className="text-sm">
-              &emsp;<span className="font-bold">-Milla Pennanen</span>, producer/coordinator, Insinööriliitto/ Union of Professional Engineers
+              &emsp;<span className="font-bold">-Milla Pennanen</span>, Producer/Coordinator, Insinööriliitto/ Union of Professional Engineers
             </p>
           </div>
         </div>
