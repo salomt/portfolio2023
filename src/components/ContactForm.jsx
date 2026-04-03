@@ -1,15 +1,16 @@
 import React, { useState } from "react"
 
+const inputBase =
+  "w-full rounded-md border bg-black/20 px-3 py-2.5 text-sm text-[#eceff2] placeholder:text-[#eceff2]/35 outline-none transition focus:border-rose-300/50 focus:ring-2 focus:ring-rose-300/20"
+
 export default function ContactForm() {
   const [fullname, setFullname] = useState("")
   const [email, setEmail] = useState("")
   const [subject, setSubject] = useState("")
   const [message, setMessage] = useState("")
 
-  //   Form validation
   const [errors, setErrors] = useState({})
 
-  //   Setting button text
   const [buttonText, setButtonText] = useState("Send")
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false)
@@ -37,7 +38,6 @@ export default function ContactForm() {
     }
 
     setErrors({ ...tempErrors })
-    console.log("errors", errors)
     return isValid
   }
 
@@ -64,12 +64,10 @@ export default function ContactForm() {
 
       const { error } = await res.json()
       if (error) {
-        console.log(error)
         setShowSuccessMessage(false)
         setShowFailureMessage(true)
         setButtonText("Send")
 
-        // Reset form fields
         setFullname("")
         setEmail("")
         setMessage("")
@@ -79,79 +77,93 @@ export default function ContactForm() {
       setShowSuccessMessage(true)
       setShowFailureMessage(false)
       setButtonText("Send")
-      // Reset form fields
       setFullname("")
       setEmail("")
       setMessage("")
       setSubject("")
     }
-
-    console.log(fullname, email, subject, message)
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="rounded-lg shadow-xl flex flex-col px-8 py-8 bg-white dark:bg-black">
-      <h1 className="text-2xl font-bold dark:text-gray-50">Send a message!</h1>
+  const errBorder = "border-red-400/60"
+  const okBorder = "border-white/15"
 
-      <label htmlFor="fullname" className="text-gray-500 font-light mt-8 dark:text-gray-50">
-        Full name<span className="text-red-500 dark:text-gray-50">*</span>
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="w-full max-w-xl rounded-xl border border-rose-300/25 bg-black/25 p-5 backdrop-blur-sm sm:p-6"
+    >
+      <h3 className="text-lg font-semibold text-rose-200 sm:text-xl">Send a message</h3>
+      <p className="mt-1 text-xs text-[#eceff2]/55">I&apos;ll get back to you as soon as I can.</p>
+
+      <label htmlFor="contact-fullname" className="mt-6 block text-xs font-medium uppercase tracking-wider text-rose-300/80">
+        Full name<span className="text-rose-400"> *</span>
       </label>
       <input
+        id="contact-fullname"
         type="text"
         value={fullname}
         onChange={(e) => {
           setFullname(e.target.value)
         }}
         name="fullname"
-        className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+        autoComplete="name"
+        className={`${inputBase} mt-1.5 ${errors.fullname ? errBorder : okBorder}`}
       />
 
-      <label htmlFor="email" className="text-gray-500 font-light mt-4 dark:text-gray-50">
-        E-mail<span className="text-red-500">*</span>
+      <label htmlFor="contact-email" className="mt-4 block text-xs font-medium uppercase tracking-wider text-rose-300/80">
+        Your email<span className="text-rose-400"> *</span>
       </label>
       <input
+        id="contact-email"
         type="email"
         name="email"
         value={email}
         onChange={(e) => {
           setEmail(e.target.value)
         }}
-        className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+        autoComplete="email"
+        className={`${inputBase} mt-1.5 ${errors.email ? errBorder : okBorder}`}
       />
 
-      <label htmlFor="subject" className="text-gray-500 font-light mt-4 dark:text-gray-50">
-        Subject<span className="text-red-500">*</span>
+      <label htmlFor="contact-subject" className="mt-4 block text-xs font-medium uppercase tracking-wider text-rose-300/80">
+        Subject<span className="text-rose-400"> *</span>
       </label>
       <input
+        id="contact-subject"
         type="text"
         name="subject"
         value={subject}
         onChange={(e) => {
           setSubject(e.target.value)
         }}
-        className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
+        className={`${inputBase} mt-1.5 ${errors.subject ? errBorder : okBorder}`}
       />
 
-      <label htmlFor="message" className="text-gray-500 font-light mt-4 dark:text-gray-50">
-        Message<span className="text-red-500">*</span>
+      <label htmlFor="contact-message" className="mt-4 block text-xs font-medium uppercase tracking-wider text-rose-300/80">
+        Message<span className="text-rose-400"> *</span>
       </label>
       <textarea
+        id="contact-message"
         name="message"
         value={message}
         onChange={(e) => {
           setMessage(e.target.value)
         }}
-        className="bg-transparent border-b py-2 pl-4 focus:outline-none focus:rounded-md focus:ring-1 ring-green-500 font-light text-gray-500"
-      ></textarea>
+        rows={5}
+        className={`${inputBase} mt-1.5 min-h-[7.5rem] resize-y ${errors.message ? errBorder : okBorder}`}
+      />
 
-      <div className="flex flex-row items-center justify-start">
-        <button type="submit" className="px-10 mt-8 py-2 bg-[#130F49] text-gray-50 font-light rounded-md text-lg flex flex-row items-center">
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <button
+          type="submit"
+          className="rounded-lg border border-rose-300/45 bg-rose-300/15 px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-rose-100 transition hover:bg-rose-300/25"
+        >
           {buttonText}
         </button>
       </div>
-      <div className="">
-        {showSuccessMessage && <p className="text-green-500 font-semibold text-sm my-2">Thank you! Your Message has been delivered.</p>}
-        {showFailureMessage && <p className="text-red-500">Oops! Something went wrong, please try again.</p>}
+      <div className="mt-3 min-h-[1.5rem]">
+        {showSuccessMessage && <p className="text-sm font-medium text-emerald-400/90">Thanks — your message was sent.</p>}
+        {showFailureMessage && <p className="text-sm font-medium text-red-400/90">Something went wrong. Please try again or email directly.</p>}
       </div>
     </form>
   )

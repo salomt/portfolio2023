@@ -33,6 +33,15 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: "ÄÄNNEKOULU",
+      url: "",
+      image: "/assets/projectpics/aannekoulu.jpg",
+      width: 250,
+      height: 200,
+      description: "Developing learning games for helping children learn pronounciation.",
+    },
+    {
+      id: 5,
       title: "YOUSICIAN",
       url: "https://www.yousician.com",
       image: "/assets/projectpics/YousicianHorizontal.png",
@@ -41,7 +50,7 @@ const Projects = () => {
       description: "Piano content production and management for music learning application.",
     },
     {
-      id: 5,
+      id: 6,
       title: "MELIORA",
       url: "",
       image: "/assets/projectpics/meliora.jpg",
@@ -50,7 +59,7 @@ const Projects = () => {
       description: "Voiceover design, recording and editing for experimental game project designed to help mental health patients.",
     },
     {
-      id: 6,
+      id: 7,
       title: "RETRO SHOT",
       url: "https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA",
       image: "/assets/projectpics/retroshot.jpeg",
@@ -59,7 +68,7 @@ const Projects = () => {
       description: "Co-composing, producing, mixing and mastering original soundtrack for a mobile game in collaboration with Retro Thruster. The soundtrack was awarded 3rd place at Finnish Game Music Awards in 2016.",
     },
     {
-      id: 7,
+      id: 8,
       title: "AG DRIVE",
       url: "https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA",
       image: "/assets/projectpics/agdrive.jpeg",
@@ -68,7 +77,7 @@ const Projects = () => {
       description: "Producing a track Riding High for a game soundtrack for AG Drive, a futuristic driving game.",
     },
     {
-      id: 8,
+      id: 9,
       title: "ROCK RUNNERS",
       url: "https://tommisalomaa.bandcamp.com/album/rock-runners-soundtrack",
       image: "/assets/projectpics/rockrunners.png",

@@ -31,7 +31,7 @@ const Main = () => {
               </a>
             </div>
             <div className="main-icon">
-              <a href="mailto:tommi.salomaa@gmail.com">
+              <a href="mailto:contact@tommisalomaa.com">
                 <AiOutlineMail color="black" size={20} />
               </a>
             </div>

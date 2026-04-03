@@ -38,14 +38,18 @@ const Navbar = () => {
   }, [])
 
   return (
-    <div className={shadow ? "bg-blue-700 bg-opacity-20 fixed w-full h-20 md:h-24 z-[100] pt-4 shadow-xl ease-in-out duration-500" : "fixed w-full h-20 md:h-24 z-[100] pt-4 ease-in-out duration-500"}>
+    <div
+      className={`fixed z-[100] h-20 w-full bg-[#000620]/80 pt-4 ease-in-out duration-500 lg:h-24 ${
+        shadow ? "border-b border-white/10" : ""
+      }`}
+    >
       <div className="flex justify-between items-center w-full px2 2xl:px-16 fixed ">
         <div className="pl-2">
-          <h2 className="">Tommi Salomaa</h2>
-          <p>MUSICIAN | NERD</p>
+          <h2 className="text-lg font-bold leading-tight lg:text-2xl">Tommi Salomaa</h2>
+          <p className="text-[0.65rem] uppercase tracking-widest text-[#eceff2]/85 lg:text-xs">MUSICIAN | NERD</p>
         </div>
         <div>
-          <ul className="hidden md:flex pr-2">
+          <ul className="hidden lg:flex pr-2">
             <li onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="ml-10 uppercase hover:border-b cursor-pointer">
               home
             </li>
@@ -70,20 +74,20 @@ const Navbar = () => {
               <li className="ml-10 uppercase hover:border-b">contact</li>
             </Link>
           </ul>
-          <div onClick={handleNav} className="md:hidden pr-2 cursor-pointer">
+          <div onClick={handleNav} className="cursor-pointer pr-2 lg:hidden">
             <AiOutlineMenu size={35} />
           </div>
         </div>
       </div>
 
-      <div className={nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""}>
-        <div className={nav ? "fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500" : "fixed left-[-100%] top-0 h-screen p-10 ease-in duration-500"}>
+      <div className={nav ? "fixed left-0 top-0 h-screen w-full bg-black/70 lg:hidden" : ""}>
+        <div className={nav ? "fixed left-0 top-0 h-screen w-[75%] bg-[#ecf0f3] p-10 ease-in duration-500 sm:w-[60%] md:w-[45%]" : "fixed left-[-100%] top-0 h-screen p-10 ease-in duration-500"}>
           <div>
             <div className="flex w-full items-center justify-between">
               <div className="text-black">
                 <h2 className="tracking-normal text-md">Tommi Salomaa</h2>
               </div>
-              <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray p-3 cursor-pointer">
+              <div onClick={handleNav} className="cursor-pointer rounded-full border border-white/15 p-3 hover:border-white/30">
                 <AiOutlineClose color="black" size={30} />
               </div>
             </div>
@@ -148,7 +152,7 @@ const Navbar = () => {
                   </a>
                 </div>
                 <div className="nav-icon">
-                  <a href="mailto:tommi.salomaa@gmail.com">
+                  <a href="mailto:contact@tommisalomaa.com">
                     <AiOutlineMail color="black" size={25} />
                   </a>
                 </div>

@@ -18,7 +18,7 @@ function StickyGamemusicScrollOffset() {
       const root = document.documentElement
       if (active) {
         root.dataset.stickyGamemusicBar = "true"
-        const rem = window.matchMedia("(min-width: 768px)").matches ? STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.md : STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.default
+        const rem = window.matchMedia("(min-width: 1024px)").matches ? STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.md : STICKY_GAMEMUSIC_ANCHOR_OFFSET_REM.default
         root.style.setProperty("--sticky-gamemusic-anchor-offset", `${rem * 16}px`)
       } else {
         root.dataset.stickyGamemusicBar = "false"
@@ -27,7 +27,7 @@ function StickyGamemusicScrollOffset() {
     }
 
     apply()
-    const mql = window.matchMedia("(min-width: 768px)")
+    const mql = window.matchMedia("(min-width: 1024px)")
     mql.addEventListener("change", apply)
     return () => {
       mql.removeEventListener("change", apply)

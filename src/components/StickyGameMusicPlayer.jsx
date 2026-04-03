@@ -43,6 +43,18 @@ const StickyGameMusicPlayer = () => {
     setCurrentTrack((prev) => (prev - 1 + n) % n)
   }
 
+  /** Advance playlist when a track finishes; keep “playing” so the next src autoplays. */
+  const handleTrackEnded = useCallback(() => {
+    setCurrentTrack((prev) => (prev + 1) % n)
+    setIsPlaying(true)
+  }, [n])
+
+  const handlePause = useCallback((e) => {
+    const el = e?.target
+    if (el && typeof el.ended === "boolean" && el.ended) return
+    setIsPlaying(false)
+  }, [])
+
   const handleSongClick = (index) => {
     if (currentTrack === index && isPlaying) {
       setIsPlaying(false)
@@ -101,7 +113,7 @@ const StickyGameMusicPlayer = () => {
       ref={barRef}
       data-gamemusic-sticky-player
       data-idle-pulse={idlePulse ? "true" : "false"}
-      className="sticky-game-music-player fixed top-20 md:top-24 left-0 right-0 z-[90] border-b border-[rgba(253,164,175,0.25)] bg-[#000620]/95 backdrop-blur-md shadow-md shadow-black/30"
+      className="sticky-game-music-player fixed top-20 left-0 right-0 z-[90] border-b border-[rgba(253,164,175,0.25)] bg-[#000620]/90 lg:top-24"
     >
       <div className="sticky-gamemusic-bar max-w-[1240px] mx-auto pl-3 sm:pl-4 pr-3 sm:pr-5 py-2 flex flex-nowrap items-center gap-1 sm:gap-1.5">
         <button
@@ -121,7 +133,19 @@ const StickyGameMusicPlayer = () => {
         </button>
 
         <div className="sticky-gamemusic-rhap-wrap min-w-0 flex-1 overflow-hidden">
-          <AudioPlayer layout="horizontal" className="sticky-gamemusic-rhap" src={track.src} showSkipControls onClickNext={handleClickNext} onClickPrevious={handleClickPrevious} onEnded={handleClickNext} autoPlay={isPlaying} autoPlayAfterSrcChange={isPlaying} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
+          <AudioPlayer
+            layout="horizontal"
+            className="sticky-gamemusic-rhap"
+            src={track.src}
+            showSkipControls
+            onClickNext={handleClickNext}
+            onClickPrevious={handleClickPrevious}
+            onEnded={handleTrackEnded}
+            autoPlay={isPlaying}
+            autoPlayAfterSrcChange={isPlaying}
+            onPlay={() => setIsPlaying(true)}
+            onPause={handlePause}
+          />
         </div>
 
         <button type="button" className="sticky-gamemusic-playlist-btn flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-rose-300/30 p-0 text-rose-200 hover:bg-rose-300/10 transition-colors" aria-expanded={playlistOpen} aria-controls="sticky-gamemusic-playlist-panel" aria-label={playlistOpen ? "Close playlist" : "Open playlist"} title={playlistOpen ? "Close playlist" : "Playlist"} onClick={() => setPlaylistOpen((o) => !o)}>
@@ -130,7 +154,7 @@ const StickyGameMusicPlayer = () => {
       </div>
 
       {playlistOpen && (
-        <div id="sticky-gamemusic-playlist-panel" className="sticky-gamemusic-playlist-panel border-t border-white/10 bg-[#000620]/98 relative">
+        <div id="sticky-gamemusic-playlist-panel" className="sticky-gamemusic-playlist-panel border-t border-white/10 bg-[#000620]/90 relative">
           <div
             ref={playlistScrollRef}
             className="sticky-gamemusic-playlist-scroll max-h-52 overflow-y-auto px-3 sm:px-4 py-2"
@@ -159,7 +183,7 @@ const StickyGameMusicPlayer = () => {
               className="sticky-gamemusic-playlist-more-hint sticky-gamemusic-playlist-more-hint--top pointer-events-none absolute top-0 left-0 right-0 h-12"
               aria-hidden="true"
             >
-              <div className="absolute inset-x-3 sm:inset-x-4 inset-y-0 bg-gradient-to-b from-[#000620] via-[#000620]/88 to-transparent" />
+              <div className="absolute inset-x-3 sm:inset-x-4 inset-y-0 bg-gradient-to-b from-[#000620]/95 via-[#000620]/55 to-transparent" />
             </div>
           )}
           {scrollHintBottom && (
@@ -167,7 +191,7 @@ const StickyGameMusicPlayer = () => {
               className="sticky-gamemusic-playlist-more-hint sticky-gamemusic-playlist-more-hint--bottom pointer-events-none absolute bottom-0 left-0 right-0 h-12"
               aria-hidden="true"
             >
-              <div className="absolute inset-x-3 sm:inset-x-4 inset-y-0 bg-gradient-to-t from-[#000620] via-[#000620]/88 to-transparent" />
+              <div className="absolute inset-x-3 sm:inset-x-4 inset-y-0 bg-gradient-to-t from-[#000620]/95 via-[#000620]/55 to-transparent" />
             </div>
           )}
         </div>
