@@ -1,17 +1,21 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import Navbar from '../components/Navbar'
-import Main from '../components/Main'
-import About from '../components/About'
-import Skills from '../components/Skills'
-import Projects from '../components/Projects'
-import Customers from '../components/Customers'
-import Contact from '../components/Contact'
+import Head from "next/head"
+import { Inter } from "next/font/google"
+import { useRouter } from "next/router"
+import Navbar from "../components/Navbar"
+import Main from "../components/Main"
+import About from "../components/About"
+import Skills from "../components/Skills"
+import Featured from "../components/Featured"
+import Projects from "../components/Projects"
+import Customers from "../components/Customers"
+import Contact from "../components/Contact"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
 export default function Home() {
+  const router = useRouter()
+  const { featured } = router.query
+
   return (
     <div>
       <Head>
@@ -23,12 +27,12 @@ export default function Home() {
 
       <Navbar />
       <Main />
+      {featured && <Featured />}
       <About />
       <Skills />
       <Projects />
       <Customers />
       <Contact />
-
     </div>
   )
 }

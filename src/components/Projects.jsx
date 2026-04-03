@@ -1,282 +1,216 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
 
 const Projects = () => {
-    return (
-        <div id='projects' className='page-top-div'>
-            <div className='max-w-[1240px] m-auto md:grid grid-cols-2 gap-8 py-8 p-4'>
-                <div className='col-span-2'>
-                    <p className='uppercase text-xl tracking-widest underline'>Projects</p>
-                    <h2 className='py-4 text-rose-300'>What have I been doing?</h2>
+  const gameProjects = [
+    {
+      id: 1,
+      title: "HOTEL HIDEAWAY",
+      url: "https://www.hotelhideawaythegame.com/",
+      image: "/assets/projectpics/hotelhideaway.png",
+      width: 300,
+      height: 200,
+      description: "Music composition and audio design for a social mobile game. (2015- Sulake Corporation)",
+    },
+    {
+      id: 2,
+      title: "DIZED",
+      url: "https://dized.com/",
+      image: "/assets/projectpics/Dized_2017.jpeg",
+      width: 300,
+      height: 200,
+      description: "Music, SFX and audio direction for a board game learning product. (2017-2018, Playmore Games Oy)",
+    },
+    {
+      id: 3,
+      title: "MOOMIN LANGUAGE SCHOOL",
+      url: "https://www.moominls.com/",
+      image: "/assets/customerlogos/Logo_MLS.png",
+      width: 500,
+      height: 200,
+      description: "Voiceover recording and editing, music composition for language learning product for children.",
+    },
+    {
+      id: 4,
+      title: "YOUSICIAN",
+      url: "https://www.yousician.com",
+      image: "/assets/projectpics/YousicianHorizontal.png",
+      width: 500,
+      height: 200,
+      description: "Piano content production and management for music learning application.",
+    },
+    {
+      id: 5,
+      title: "MELIORA",
+      url: "",
+      image: "/assets/projectpics/meliora.jpg",
+      width: 300,
+      height: 200,
+      description: "Voiceover design, recording and editing for experimental game project designed to help mental health patients.",
+    },
+    {
+      id: 6,
+      title: "RETRO SHOT",
+      url: "https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA",
+      image: "/assets/projectpics/retroshot.jpeg",
+      width: 300,
+      height: 200,
+      description: "Co-composing, producing, mixing and mastering original soundtrack for a mobile game in collaboration with Retro Thruster. The soundtrack was awarded 3rd place at Finnish Game Music Awards in 2016.",
+    },
+    {
+      id: 7,
+      title: "AG DRIVE",
+      url: "https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA",
+      image: "/assets/projectpics/agdrive.jpeg",
+      width: 500,
+      height: 200,
+      description: "Producing a track Riding High for a game soundtrack for AG Drive, a futuristic driving game.",
+    },
+    {
+      id: 8,
+      title: "ROCK RUNNERS",
+      url: "https://tommisalomaa.bandcamp.com/album/rock-runners-soundtrack",
+      image: "/assets/projectpics/rockrunners.png",
+      width: 500,
+      height: 200,
+      description: "Composing and producing soundtrack and SFX for mobile game Rock Runners (Recoil Games)",
+    },
+  ]
 
-                    {/* GAMES */}
-                    <h3 className='pt-8'>Games and digital products</h3>
-                    <div className='border-b pb-2'></div>
-                    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full py-4'>
+  const studioProjects = [
+    {
+      id: 101,
+      title: "TEAM ROGER - RUNTIME BREAKER",
+      url: "https://open.spotify.com/album/2wyKZ4Q2Ti9CTfZaMusuGo?si=SuelsP37ToORkqQfOELRJQ",
+      image: "/assets/projectpics/Team_Roger_Runtime_Breaker.png",
+      width: 250,
+      height: 250,
+      items: ["Composition", "Production", "Mixing"],
+    },
+    {
+      id: 102,
+      title: "TOMMI SALOMAA - PIANO MUSIC",
+      url: "https://open.spotify.com/playlist/5QErNWgN3wfaXC9unM8RGU?si=e1d4d910e8c14935",
+      image: "/assets/projectpics/pianomusic.png",
+      width: 250,
+      height: 250,
+      items: ["Composition", "Performing", "Co-engineering"],
+    },
+    {
+      id: 103,
+      title: "FENETZAR",
+      url: "https://open.spotify.com/artist/1wl871Zm63BJWCW1fGKrYX?si=nAzTPoClRum4uamwZ6KjsQ",
+      image: "/assets/projectpics/fenetzar.png",
+      width: 250,
+      height: 250,
+      items: ["Production", "Engineering"],
+    },
+    {
+      id: 104,
+      title: "CAT & MOUSE - RATS & COWS",
+      url: "https://open.spotify.com/album/6lHVyQY6bLas3KwqUqX14M?si=t3OLMjcwSUSWgT5FTYBxeA",
+      image: "/assets/projectpics/rat_and_cows.jpg",
+      width: 250,
+      height: 250,
+      items: ["Co-production", "Mixing", "Mastering"],
+    },
+    {
+      id: 105,
+      title: "WALTARI - 3RD DECADE",
+      url: "https://open.spotify.com/album/3slotRsmfCgt89DfJqf23d?si=yfzQvSJuTMmB8uu6tOxElQ",
+      image: "/assets/projectpics/Waltari_3rdDecade.jpeg",
+      width: 250,
+      height: 250,
+      items: ["Synth arrangements and sound design", "Recording children's choir in So Fine 2021", "Co-mixing some tracks"],
+    },
+    {
+      id: 106,
+      title: "BABA GANOUSH ORKESTRA - MEZE",
+      url: "https://open.spotify.com/album/74JJd6RmHqD3deWsTIHEGq?si=NxXmosFESN2CDSgdUTk0vg",
+      image: "/assets/projectpics/BabaGanoush_Meze.png",
+      width: 250,
+      height: 250,
+      items: ["Recording & Engineering", "Mixing Sneak studio live song"],
+    },
+    {
+      id: 107,
+      title: "V FOR VIOLENCE - THE BOOK OF V",
+      url: "https://open.spotify.com/album/5dkcKhZscVpiyY6dgGWGko?si=cnw1M6okQG2NE2o1IS1sOA",
+      image: "/assets/projectpics/VforViolence_TheBook.png",
+      width: 250,
+      height: 250,
+      items: ["Strings arrangements, production and recording", "Synth, piano and noise arrangements and playing", "Co-production"],
+    },
+    {
+      id: 108,
+      title: "STORBO - GATES OF THE OVERLORD",
+      url: "https://open.spotify.com/album/1lYL6yGqw8TqHhaxfvyaeR?si=pibOB18-RdSdEoeI2EyTuA",
+      image: "/assets/projectpics/Storbo_GatesOfTheOverlord.png",
+      width: 250,
+      height: 250,
+      items: ["Keyboards, synths and sound design"],
+    },
+  ]
 
-                        {/* HOTEL HIDEAWAY */}
-                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://www.hotelhideawaythegame.com/' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/hotelhideaway.png'
-                                        alt="Sulake"
-                                        width={300}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>HOTEL HIDEAWAY</h4>
-                                <p>
-                                    Music composition and audio design for a social mobile game. <br /> (2015- Sulake Corporation)
-                                </p>
-                            </div>
-                        </div>
+  return (
+    <div id="projects" className="page-top-div">
+      <div className="max-w-[1240px] m-auto md:grid grid-cols-2 gap-8 py-8 p-4">
+        <div className="col-span-2">
+          <p className="uppercase text-xl tracking-widest underline">Projects</p>
+          <h2 className="py-4 text-rose-300">What have I been doing?</h2>
 
-                         {/* DIZED */}
-                        <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://dized.com/' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/Dized_2017.jpeg'
-                                        alt="Dized"
-                                        width={300}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>DIZED</h4>
-                                <p>
-                                    Music, SFX and audio direction for a board game learning product. <br />(2017-2018, Playmore Games Oy)
-                                </p>
-                            </div>
-                        </div>
-
-                         {/* MLS */}
-                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://www.moominls.com/' target='_blank'>
-                                    <Image
-                                        src='/assets/customerlogos/Logo_MLS.png'
-                                        alt="Moomin Language School"
-                                        width={500}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>MOOMIN LANGUAGE SCHOOL</h4>
-                                <p>
-                                    Voiceover recording and editing, music composition for language learning product for children.
-                                </p>
-                            </div>
-                        </div>
-
-                         {/* YOUSICIAN */}
-                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://www.yousician.com' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/YousicianHorizontal.png'
-                                        alt="Yousician"
-                                        width={500}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>YOUSICIAN</h4>
-                                <p>
-                                    Piano content production and management for music learning application.
-                                </p>
-                            </div>
-                        </div>
-
-
-                         {/* RETRO SHOT */}
-                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/retroshot.jpeg'
-                                        alt="Dized"
-                                        width={300}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>RETRO SHOT</h4>
-                                <p>
-                                    Co-composing, producing, mixing and mastering original soundtrack for a mobile game in collaboration with Retro Thruster.
-                                    The soundtrack was awarded 3rd place at Finnish Game Music Awards in 2016.
-                                </p>
-                            </div>
-                        </div>
-
-                         {/* AG DRIVE */}
-                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://open.spotify.com/album/4kfOjrIS3j0tpgcbgWHZDw?si=u0zF3ALKRDa1goZiIjXHdA' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/agdrive.jpeg'
-                                        alt="Dized"
-                                        width={500}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>AG DRIVE</h4>
-                                <p>
-                                    Producing a track <span className='italic'>Riding High</span> for a game soundtrack for AG Drive, a futuristic driving game.
-                                </p>
-                            </div>
-                        </div>
-                        
-                         {/* ROCK RUNNERS */}
-                         <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <div className=' py-2 p-4 flex items-center justify-center'>
-                                <a href='https://tommisalomaa.bandcamp.com/album/rock-runners-soundtrack' target='_blank'>
-                                    <Image
-                                        src='/assets/projectpics/rockrunners.png'
-                                        alt="Rock Runners"
-                                        width={500}
-                                        height={200}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </a>
-                            </div>
-                            <div className='py2 p-4 text-black'>
-                            <h4>ROCK RUNNERS</h4>
-                                <p>
-                                    Composing and producing soundtrack and SFX for mobile game Rock Runners (Recoil Games)
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    {/* Studio Work */}
-                    <h3 className='pt-8'>Studio Work</h3>
-                    <div className='border-b pb-2 m-auto'></div>
-                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4'>
-
-                       {/* WALTARI */}
-                       <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <a href='https://open.spotify.com/album/3slotRsmfCgt89DfJqf23d?si=yfzQvSJuTMmB8uu6tOxElQ' target='_blank'>
-                                <div className=' py-2 p-4 flex items-center justify-center'>
-                                    <Image
-                                        src='/assets/projectpics/Waltari_3rdDecade.jpeg'
-                                        alt="Waltari 3rd Decade"
-                                        width={250}
-                                        height={250}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </div>
-                                <div className='py2 p-4 text-black'>
-                                    <h4>WALTARI - 3RD DECADE</h4>
-                                    <ul className='list-disc p-2'>
-                                        <li>Synth arrangements and sound design</li>
-                                        <li>Recording children&apos;s choir in <span className='italic'>So Fine 2021</span></li>
-                                        <li>Co-mixing some tracks</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-
-                       {/* BABA GANOUSH */}
-                       <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <a href='https://open.spotify.com/album/74JJd6RmHqD3deWsTIHEGq?si=NxXmosFESN2CDSgdUTk0vg' target='_blank'>
-                                <div className=' py-2 p-4 flex items-center justify-center'>
-                                    <Image
-                                        src='/assets/projectpics/BabaGanoush_Meze.png'
-                                        alt="Baba Ganoush Meze"
-                                        width={250}
-                                        height={250}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </div>
-                                <div className='py2 p-4 text-black'>
-                                    <h4>BABA GANOUSH ORKESTRA - MEZE</h4>
-                                    <ul className='list-disc p-2'>
-                                        <li>Recording the instruments</li>
-                                        <li>Mixing <span className='italic'>Sneak</span> studio live song</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-
-                       {/* V FOR VIOLENCE */}
-                       <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <a href='https://open.spotify.com/album/5dkcKhZscVpiyY6dgGWGko?si=cnw1M6okQG2NE2o1IS1sOA' target='_blank'>
-                                <div className=' py-2 p-4 flex items-center justify-center'>
-                                    <Image
-                                        src='/assets/projectpics/VforViolence_TheBook.png'
-                                        alt="V for Violence The Book of V"
-                                        width={250}
-                                        height={250}
-                                        // blurDataURL="data:..." automatically provided
-                                        // placeholder="blur" // Optional blur-up while loading
-                                    />
-                                </div>
-                                <div className='py2 p-4 text-black'>
-                                    <h4>V FOR VIOLENCE - THE BOOK OF V</h4>
-                                    <ul className='list-disc p-2'>
-                                        <li>Strings arrangements, production and recording</li>
-                                        <li>Synth, piano and noise arrangements and playing</li>
-                                        <li>Co-production</li>
-                                    </ul>
-                                </div>
-                            </a>
-                        </div>
-
-                       {/* STORBO */}
-                       <div className='grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300'>
-                            <a href='https://open.spotify.com/album/1lYL6yGqw8TqHhaxfvyaeR?si=pibOB18-RdSdEoeI2EyTuA' target='_blank'>
-                                <div className=' py-2 p-4 flex items-center justify-center'>
-                                        <Image
-                                            src='/assets/projectpics/Storbo_GatesOfTheOverlord.png'
-                                            alt="Storbo - Gates Of The Overlord"
-                                            width={250}
-                                            height={250}
-                                            // blurDataURL="data:..." automatically provided
-                                            // placeholder="blur" // Optional blur-up while loading
-                                        />
-            
-                                </div>
-                                <div className='py2 p-4 text-black'>
-                                    <h4>STORBO - GATES OF THE OVERLORD</h4>
-                                <ul className='list-disc p-2'>
-                                    <li>Keyboards, synths and sound design</li>
-                                </ul>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
+          {/* GAMES */}
+          <h3 className="pt-8">Games and digital products</h3>
+          <div className="border-b pb-2"></div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full py-4">
+            {gameProjects.map((project) => (
+              <div key={project.id} className="grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300">
+                <div className=" py-2 p-4 flex items-center justify-center">
+                  {project.url ? (
+                    <a href={project.url} target="_blank">
+                      <Image src={project.image} alt={project.title} width={project.width} height={project.height} />
+                    </a>
+                  ) : (
+                    <a>
+                      <Image src={project.image} alt={project.title} width={project.width} height={project.height} />
+                    </a>
+                  )}
                 </div>
-            </div>
+                <div className="py2 p-4 text-black">
+                  <h4>{project.title}</h4>
+                  <p>{project.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ALBUMS AND STUDIO PROJECTS */}
+          <h3 className="pt-8">Albums and studio projects</h3>
+          <div className="border-b pb-2 m-auto"></div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full py-4">
+            {studioProjects.map((project) => (
+              <div key={project.id} className="grid justify-between bg-gray-300 rounded-md hover:scale-105 ease-in-out duration-300">
+                <a href={project.url} target="_blank">
+                  <div className=" py-2 p-4 flex items-center justify-center">
+                    <Image src={project.image} alt={project.title} width={project.width} height={project.height} />
+                  </div>
+                  <div className="py2 p-4 text-black">
+                    <h4>{project.title}</h4>
+                    <ul className="list-disc p-2">
+                      {project.items.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Projects
