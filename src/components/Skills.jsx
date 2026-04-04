@@ -14,6 +14,7 @@ const Skills = () => {
                 <li>composing & arranging</li>
                 <li>recording & mixing</li>
                 <li>producing</li>
+                <li>mastering</li>
               </ul>
             </div>
             <div className="py-2">
@@ -23,6 +24,8 @@ const Skills = () => {
                 <li>field recording</li>
                 <li>voiceover</li>
                 <li>sound synthesis</li>
+                <li>audio programming</li>
+                <li>integration</li>
               </ul>
             </div>
           </div>
@@ -62,6 +65,7 @@ const Skills = () => {
                 <li>video editing</li>
                 <li>analog electronics</li>
                 <li>microcontrollers</li>
+                <li>basics of acoustics</li>
               </ul>
             </div>
           </div>
