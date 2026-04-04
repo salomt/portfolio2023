@@ -4,6 +4,9 @@ import AudioPlayer from "react-h5-audio-player"
 import { MdPlaylistPlay } from "react-icons/md"
 import { GAME_MUSIC_PLAYLIST } from "../data/gamemusicPlaylist"
 import { useFeaturedVideo } from "../context/FeaturedVideoContext"
+import { useGameMusicAnalyser } from "../hooks/useGameMusicAnalyser"
+
+const VISUALIZER_BAR_COUNT = 7
 
 const StickyGameMusicPlayer = () => {
   const router = useRouter()
@@ -14,6 +17,7 @@ const StickyGameMusicPlayer = () => {
   const [scrollHintTop, setScrollHintTop] = useState(false)
   const [scrollHintBottom, setScrollHintBottom] = useState(false)
   const barRef = useRef(null)
+  const playingEqRef = useRef(null)
   const playlistScrollRef = useRef(null)
 
   const updatePlaylistScrollUi = useCallback(() => {
@@ -137,6 +141,13 @@ const StickyGameMusicPlayer = () => {
     }
   }, [isGamemusicBar])
 
+  useGameMusicAnalyser({
+    containerRef: barRef,
+    eqBarsRef: playingEqRef,
+    active: isGamemusicBar,
+    playing: isPlaying && !featuredVideoPlaying,
+  })
+
   if (!isGamemusicBar) {
     return null
   }
@@ -145,24 +156,36 @@ const StickyGameMusicPlayer = () => {
     <div
       ref={barRef}
       data-gamemusic-sticky-player
+      data-playing={isPlaying && !featuredVideoPlaying ? "true" : "false"}
       data-idle-pulse={idlePulse ? "true" : "false"}
       className="sticky-game-music-player fixed left-0 right-0 top-14 z-[90] border-b border-[rgba(253,164,175,0.25)] bg-[#000620]/90 lg:top-16"
     >
       <div className="sticky-gamemusic-bar mx-auto flex max-w-[1240px] flex-nowrap items-center gap-1.5 py-2.5 pl-3 pr-3 sm:gap-2 sm:pl-4 sm:pr-5 sm:py-3">
         <button
           type="button"
-          className="min-w-0 w-[6.5rem] shrink-0 rounded-md border border-transparent py-1 pl-1.5 pr-1 text-left transition-colors hover:border-rose-300/20 hover:bg-rose-300/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000620] sm:w-[11.5rem] sm:pl-2"
+          className="flex min-w-0 w-[6.5rem] shrink-0 items-start gap-1.5 rounded-md border border-transparent py-1 pl-1.5 pr-1 text-left transition-colors hover:border-rose-300/20 hover:bg-rose-300/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-300/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000620] sm:w-[13rem] sm:gap-2 sm:pl-2"
           onClick={() => setPlaylistOpen((o) => !o)}
           aria-expanded={playlistOpen}
           aria-controls="sticky-gamemusic-playlist-panel"
           aria-label={playlistOpen ? "Close playlist" : "Open playlist"}
         >
-          <p className="sticky-gamemusic-status-label text-[0.68rem] uppercase leading-none tracking-[0.16em] text-rose-300/75 sm:text-[0.72rem]" aria-live="polite">
-            {isPlaying ? "Now playing" : featuredVideoPlaying ? "Video" : "Press play"}
-          </p>
-          <p className="mt-0.5 truncate text-[0.875rem] font-semibold leading-tight text-[#eceff2] sm:text-[0.95rem]" title={track.title}>
-            {track.title}
-          </p>
+          <span className="min-w-0 flex-1">
+            <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+              <p className="sticky-gamemusic-status-label shrink-0 text-[0.68rem] uppercase leading-none tracking-[0.16em] text-rose-300/75 sm:text-[0.72rem]" aria-live="polite">
+                {isPlaying ? "Now playing" : featuredVideoPlaying ? "Video" : "Press play"}
+              </p>
+              {isPlaying && !featuredVideoPlaying && (
+                <span ref={playingEqRef} className="sticky-gamemusic-playing-eq shrink-0" aria-hidden="true">
+                  {Array.from({ length: VISUALIZER_BAR_COUNT }, (_, i) => (
+                    <span key={i} className="sticky-gamemusic-playing-eq__bar" />
+                  ))}
+                </span>
+              )}
+            </div>
+            <p className="mt-0.5 truncate text-[0.875rem] font-semibold leading-tight text-[#eceff2] sm:text-[0.95rem]" title={track.title}>
+              {track.title}
+            </p>
+          </span>
         </button>
 
         <div className="sticky-gamemusic-rhap-wrap min-w-0 flex-1 overflow-hidden">
@@ -170,6 +193,7 @@ const StickyGameMusicPlayer = () => {
             layout="horizontal"
             className="sticky-gamemusic-rhap"
             src={track.src}
+            showDownloadProgress={false}
             showSkipControls
             onClickNext={handleClickNext}
             onClickPrevious={handleClickPrevious}

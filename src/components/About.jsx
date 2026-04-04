@@ -9,14 +9,14 @@ const About = () => {
 
           <h2 className="py-4 text-rose-300">Who am I?</h2>
 
-          <p className="py-4">I am a guy who has dabbled his whole life with music, audio and tech.</p>
-          <p className="py-4">My passion is to make products that work and sound amazing.</p>
+          <p className="py-4">As a creative and a tech-head, I work where music, audio, and technology meet.</p>
+          <p className="py-4">I care about building products in tech, in music, and especially where the two overlap — things that work and sound great.</p>
 
           <div>
             {" "}
             {/* RECOMMENDATIONS QUOTES */}
             <h3 className="pt-8 border-b">What others have to say?</h3>
-            <p className="pt-4 italic text-rose-300">&quot;Tommi has composed several songs for us and done other sound work too. We are really happy with the quality of work he has done for us and it's always a pleasure to work with him!</p>
+            <p className="pt-4 italic text-rose-300">&quot;Tommi has composed several songs for us and done other sound work too. We are really happy with the quality of work he has done for us and it&apos;s always a pleasure to work with him!</p>
             <p className="text-sm">
               &emsp;<span className="font-bold">-Jouni Jussila</span>, CEO, Co-founder at DIZED
             </p>

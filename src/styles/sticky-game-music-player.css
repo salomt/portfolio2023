@@ -112,11 +112,11 @@
   margin-top: 0 !important;
 }
 
-/* Cap how much horizontal space the timeline row can take (library uses flex: 3 1 auto here). */
+/* Timeline width: between the old 48% (too short) and full flex (too long). */
 [data-gamemusic-sticky-player] .rhap_progress-section {
   flex: 1 1 0% !important;
   min-width: 0 !important;
-  max-width: min(100%, 48%) !important;
+  max-width: min(100%, 54%) !important;
 }
 
 [data-gamemusic-sticky-player] .rhap_progress-container {
@@ -146,7 +146,7 @@
 }
 
 [data-gamemusic-sticky-player] .rhap_progress-bar {
-  background-color: rgba(236, 239, 242, 0.12) !important;
+  background-color: rgba(236, 239, 242, 0.3) !important;
   height: 6px !important;
 }
 
@@ -172,7 +172,7 @@
 }
 
 [data-gamemusic-sticky-player] .rhap_volume-bar {
-  background-color: rgba(236, 239, 242, 0.12) !important;
+  background-color: rgba(236, 239, 242, 0.3) !important;
 }
 
 [data-gamemusic-sticky-player] .rhap_volume-indicator {
@@ -279,7 +279,7 @@
   );
   transform: translateX(-130%) skewX(-16deg);
   /* Shorter path + quicker fade so the shine doesn’t trail past the copy */
-  animation: sticky-gamemusic-white-wipe-label 10s ease-in-out infinite;
+  animation: sticky-gamemusic-white-wipe-label 7.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -306,7 +306,7 @@
     transparent 100%
   );
   transform: translateX(-130%) skewX(-16deg);
-  animation: sticky-gamemusic-white-wipe-button 10s ease-in-out infinite;
+  animation: sticky-gamemusic-white-wipe-button 7.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -320,20 +320,21 @@
     transform: translateX(-130%) skewX(-16deg);
     opacity: 0;
   }
-  /* Same 10s loop; wipe segment ~3× faster (compressed keyframe span) */
+  /* Same 7.5s loop; wipe segment ~3× faster (compressed keyframe span) */
   13.67% {
     opacity: 1;
   }
+  /* translateX % is relative to the ::after width (~38% of label); need ~160%+ so the shine clears “Press play” */
   16% {
-    transform: translateX(88%) skewX(-16deg);
+    transform: translateX(185%) skewX(-16deg);
     opacity: 1;
   }
   17.67% {
-    transform: translateX(102%) skewX(-16deg);
+    transform: translateX(230%) skewX(-16deg);
     opacity: 0;
   }
   100% {
-    transform: translateX(102%) skewX(-16deg);
+    transform: translateX(230%) skewX(-16deg);
     opacity: 0;
   }
 }
@@ -359,6 +360,25 @@
     transform: translateX(220%) skewX(-16deg);
     opacity: 0;
   }
+}
+
+/* Spectrum bars: scaleY driven by useGameMusicAnalyser (AnalyserNode FFT). Sits beside “Now playing”. */
+[data-gamemusic-sticky-player] .sticky-gamemusic-playing-eq {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 1px;
+  height: 0.75rem;
+}
+
+[data-gamemusic-sticky-player] .sticky-gamemusic-playing-eq__bar {
+  width: 1.5px;
+  height: 11px;
+  border-radius: 999px;
+  transform: scaleY(0.2);
+  transform-origin: bottom center;
+  background: linear-gradient(to top, rgba(253, 164, 175, 0.95), rgba(253, 164, 175, 0.35));
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -388,6 +408,6 @@
   }
 
   [data-gamemusic-sticky-player] .rhap_progress-section {
-    max-width: min(100%, 58%) !important;
+    max-width: min(100%, 62%) !important;
   }
 }
